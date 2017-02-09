@@ -1,0 +1,13 @@
+---
+title       : "資料整合"
+author      : "Wush Wu"
+job         : 國立台灣大學
+framework   : io2012-wush
+highlighter : highlight.js
+hitheme     : zenburn
+widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+--- &vcenter .largecontent
+
+[解斷尾求生之謎 台師大證實尾巴是蜥蜴存活關鍵](http://m.ltn.com.tw/news/life/breakingnews/1969358)
