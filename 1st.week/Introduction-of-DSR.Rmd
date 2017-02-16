@@ -17,6 +17,7 @@ library(XML)
 library(data.table)
 library(dplyr)
 library(ggplot2)
+library(diagram)
 
 opts_chunk$set(echo = FALSE, cache=FALSE, comment="", 
                cache.path = "cache-Introduction-of-DSR/", 
@@ -30,6 +31,7 @@ fig2 <- function(path, size = 100) {
   sprintf("<img src='assets/img/%s' style='width: %d%%'></img>", 
           path, size)
 }
+bg <- function(path) sprintf("bg:url(assets/img/%s)", path)
 sys_name <- Sys.info()["sysname"] %>% tolower
 sys_encode <- c("utf8", "utf8", "big5")[pmatch(sys_name, c("linux", "darwin", "windows"))]
 sessionInfo() %>% capture.output %>% cat(file = "sessionInfo.log", sep = "\n")
@@ -60,27 +62,22 @@ Sys.setlocale(category = "LC_TIME", locale = "en_US.UTF-8")
 
 ## R 簡介
 
---- &vcenter .largecontent
+--- &fullimg `r bg("statician_10521919-655x280.jpg")`
 
-## R 來自世界上最專業的統計學家
-
-<center>`r fig('statician_10521919-655x280.jpg')`</center>
+*** =pnotes
 
 取自 <http://myfootpath.com/careers/engineering-careers/statistician-careers/>
 
---- .largecontent
+--- &fullimg `r bg("flights_sml.jpg")`
 
-## R 可以輸出高品質的視覺化
-
-<center>`r fig("flights_sml.jpg", 100)`</center>
+*** =pnotes
 
 取自 <http://www.r-bloggers.com/mapping-the-worlds-biggest-airlines/>
 
---- &vcenter .largecontent
+--- &fullimg `r bg("t134_3ca_lg.jpg")`
 
-## R 有驚人彈性和潛力
+*** =pnotes
 
-<center>`r fig("t134_3ca_lg.jpg", 100)`</center>
 取自 <http://img.diynetwork.com/DIY/2003/09/18/t134_3ca_med.jpg>
 
 --- &vcenter .largecontent
@@ -330,10 +327,12 @@ ks.test(x1, x2)
 ## 社群的力量
 
 - 工具的可靠性
-    - 使用者的人數決定工具的可靠度，付錢的工具不一定可靠
+    - 使用者的人數決定工具的可靠度，付錢的工具不一定可靠（要夠紅）
 - 開發的速度
     - 工程師很貴
-    - 社群的開發很快
+    - 社群會幫忙的開發與測試（要夠紅）
+- 開發的方向
+    - 社群會給發展方向的回饋（要夠紅）
 
 --- &vcenter .largecontent
 
@@ -353,4 +352,121 @@ ks.test(x1, x2)
 suppressPackageStartupMessages(library(PerformanceAnalytics))
 chart.Correlation(iris[-5], bg=iris$Species, pch=21)
 ```
+
+--- .largecontent
+
+## 範例 - 經濟學人風格的視覺化
+
+<center>
+```{r ggthemes}
+library(ggthemes)
+dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
+q <- (qplot(carat, price, data=dsamp, colour=clarity)
+      + ggtitle("Diamonds Are Forever"))
+
+## Standard
+q + theme_economist() + scale_colour_economist()
+```
+</center>
+
+--- .dark .segue
+
+## 近代R 的演變
+
+--- &vcenter .largecontent
+
+## 資料科學不只是分析資料
+
+- 傳統的R對於以下的功能有限：
+  - 資料的收集
+  - 資料的清理
+  - 報表的呈現
+
+--- &vcenter .largecontent
+
+## R Core Team (主導者) v.s. R Packages (社群)
+
+- R Core Team 對新需求的要求很保守
+  - 正確姓是絕對的
+  - 向下相容: 新功能要能在十年前的電腦上運作
+- Community: 那我們就自己寫套件來玩
+  - [GitHub · Build software better, together](https://github.com)
+  - Hadley降低了寫套件的難度
+
+--- &vcenter .largecontent
+
+## 我們仍然對R Core Team 非常尊敬
+
+- 現在已經有 70000+ 次的更動
+- 在2009年10月9日時達到50000次更動 by Prof. Ripley
+
+--- &fullimg `r bg("R-commits.gif")`
+
+*** =pnotes
+
+取自 <https://yihui.name/en/2009/10/50000-revisions-committed-to-r/>
+
+--- &vcenter .largecontent
+
+## 資料的收集
+
+- R 可以寫網路爬蟲
+  - httr, xml2, rvest, ...
+- R 可以讀取、處理許多資料格式
+  - [R Data Import/Export by CRAN](https://cran.r-project.org/doc/manuals/r-release/R-data.html)
+
+--- &vcenter .largecontent
+
+## 常見的處理手法
+
+```{r, echo = FALSE, results = "figure"}
+par(mar = c(1, 1, 1, 1), bg = "transparent")
+openplotmat()
+elpos  <- coordinates (c(1, 1, 1))
+fromto <- matrix(c(
+  1, 2,
+  2, 3
+), byrow = TRUE, ncol = 2)
+nr     <- nrow(fromto)
+arrpos <- matrix(ncol = 2, nrow = nr)
+for (i in 1:nr)
+ arrpos[i, ] <- straightarrow (to = elpos[fromto[i, 2], ],
+                              from = elpos[fromto[i, 1], ],
+                              lwd = 2, arr.pos = 0.6, arr.length = 0.5)
+textellipse(elpos[1,], 0.3, 0.1,       lab = "抓取網頁資訊",           box.col = "orange",
+            shadow.col = "darkgreen", shadow.size = 0.005, cex = 1.5)
+textrect   (elpos[2,], 0.3, 0.05,lab = "儲存網頁HTML原始檔到硬碟",     box.col = "orange",
+            shadow.col = "darkblue", shadow.size = 0.005, cex = 1.5)
+textrect   (elpos[3,], 0.3, 0.05, lab = "分析資料",        box.col = "orange",
+            shadow.col = "darkblue", shadow.size = 0.005, cex = 1.5)
+```
+
+--- &vcenter .largecontent
+
+## 範例：政府招標資訊網
+
+<br/>
+
+- 中華民國政府電子採購網
+    - 利用決標查詢功能來瀏覽與抓取決標資料
+    - 時間範圍自2013年10月至2015年11月
+    - 一共108360筆決標資料
+- 決標資料內容：
+    - 機關資料，如：名稱、地址、聯絡人與聯絡電話等
+    - 採購資料，如：案號、招標方式、決標方式、標的分類、辦理方式與相關法源依據等
+    - 投標廠商，如：廠商統編、名稱、決標金額等
+    - 決標品向，如：品向名稱以及得標廠商的相關資料
+    - 決標資料，如總決標金額、履約執行機關等
+
+*** =pnotes
+
+<center>`r fig("Selection_031.png")`</center>
+
+--- &vcenter .largecontent
+
+## 範例：政府招標資訊網
+
+- 挖掘公司之間的關係
+
+--- &vcenter .largecontent
 
