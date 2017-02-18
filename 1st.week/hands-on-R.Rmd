@@ -15,11 +15,7 @@ knit        : slidify::knit2slides
 1. 安裝R 與Rstudio
 1. Rstudio 功能簡介
 1. 上手R 程式撰寫
-1. 程式在想什麼
-1. 自學程式
-1. 如何利用自學能力解決問題
 
---- &vcenter .largecontent
 ```{r setup, include = FALSE}
 library(knitr)
 opts_chunk$set(echo = FALSE, cache=FALSE, comment="", 
@@ -32,6 +28,12 @@ fig <- function(path, size = 100) {
 }
 bg <- function(path) sprintf("bg:url(assets/img/%s)", path)
 ```
+
+--- .dark .segue
+
+## 安裝R 與Rstudio
+
+--- &vcenter .largecontent
 
 ## 事前注意事項
 
@@ -165,9 +167,7 @@ sudo apt-get update && apt-get install -y r-base libcurl4-openssl-dev libxml2-de
 - 了解變數(名字、值)
     - 了解assignment
 - 了解函數、參數
-- 了解各種括號的用途
 - 學習簡易套件安裝
-- 操作Rstudio的功能
 
 --- &vcenter .largecontent
 
@@ -676,3 +676,14 @@ strsplit("abcdef", TRUE, split = "cd")
 ```
 
 - 請問參數`x`、`split`、`fixed`、`perl`與`useBytes`的值各為何?
+
+--- &vcenter .largecontent
+
+## 總結
+
+- 初步了解如何構成一個R 的程式
+    - 函數... 函數... 函數.......
+    - 當然還有其他的東西
+- 函數就是功能，套件提供更多的函數
+- 知道如何安裝套件
+
