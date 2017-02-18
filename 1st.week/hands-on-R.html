@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>上手R語言</title>
+  <meta charset="utf-8">
+  <meta name="description" content="上手R語言">
+  <meta name="author" content="Wush Wu">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012-wush/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012-wush/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012-wush/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/custom.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="libraries/frameworks/io2012-wush/js/jquery-1.7.min.js"></script>
+  <!-- <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> -->
+  <script data-main="libraries/frameworks/io2012-wush/js/slides" 
+    src="libraries/frameworks/io2012-wush/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>上手R語言</h1>
+    <h2></h2>
+    <p>Wush Wu<br/>國立台灣大學</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="largecontent" id="slide-1" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>大綱</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ol>
+<li>安裝R 與Rstudio</li>
+<li>Rstudio 功能簡介</li>
+<li>上手R 程式撰寫</li>
+<li>程式在想什麼</li>
+<li>自學程式</li>
+<li>如何利用自學能力解決問題</li>
+</ol>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-2" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>事前注意事項</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>Windows 使用者請確定自己的使用者名稱不包含中文
+
+<ul>
+<li>否則請開一個純英文的使用者名稱</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-3" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>安裝R</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li><a href="https://cran.r-project.org">CRAN</a></li>
+<li><a href="http://cran.csie.ntu.edu.tw">台大的CRAN Mirror</a></li>
+<li>依據作業系統做選擇:
+
+<ul>
+<li><a href="http://cran.csie.ntu.edu.tw/bin/windows/">Windows</a> --&gt; <a href="http://cran.csie.ntu.edu.tw/bin/windows/base/">base</a> --&gt; <a href="http://cran.csie.ntu.edu.tw/bin/windows/base/R-3.3.2-win.exe">Download R 3.3.2 for Windows</a> --&gt; 打開下載後的檔案並安裝</li>
+<li><a href="http://cran.csie.ntu.edu.tw/bin/macosx/">Mac OS X</a> --&gt; <a href="http://cran.csie.ntu.edu.tw/bin/macosx/R-3.3.2.pkg">R-3.3.2.pkg</a> --&gt; 打開下載後的檔案並安裝</li>
+<li><a href="http://cran.csie.ntu.edu.tw/bin/linux/">Linux</a> 請參考不同distribution的安裝說明，有問題課後<a href="https://gitter.im/wush978/DataScienceAndR">找助教</a></li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-4" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>影片示範: Windows</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><a href="http://www.youtube.com/watch?v=FsOHPGUIDZU"><img src="http://img.youtube.com/vi/FsOHPGUIDZU/0.jpg" alt="在Windows上安裝R"></a></p>
+
+<ul>
+<li>影片中的範例是 3.0.2 的版本，請使用者記得安裝 3.1 以上的版本喔！</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-5" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>影片示範: OS X</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><a href="http://www.youtube.com/watch?v=72MYRBNo5Bk"><img src="http://img.youtube.com/vi/72MYRBNo5Bk/0.jpg" alt="Mac OS X 安裝R軟體"></a></p>
+
+<ul>
+<li>此影片由中華R軟體學會的李明昌老師提供</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-6" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>Linux Ubuntu</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="sh">sudo sh -c &#39;echo &quot;deb http://cran.csie.ntu.edu.tw/bin/linux/ubuntu trusty/&quot; &gt;&gt; /etc/apt/sources.list&#39;
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+sudo apt-get update &amp;&amp; apt-get install -y r-base libcurl4-openssl-dev libxml2-dev espeak
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-7" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>安裝Rstudio</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li><a href="https://www.rstudio.com/products/RStudio">Rstudio</a>
+
+<ul>
+<li><a href="">Desktop</a> --&gt; <a href="https://www.rstudio.com/products/rstudio/download/">Open Source Edition</a> --&gt; 根據作業系統選擇</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-8" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>示範影片搜尋</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><br/><br/></p>
+
+<ul>
+<li>Rstudio 的官方網頁一直在改版... 所以請<a href="https://www.google.com.tw/search?q=how+to+install+rstudio&amp;client=ubuntu&amp;hs=n8j&amp;channel=fs&amp;biw=1760&amp;bih=876&amp;tbm=vid&amp;source=lnt&amp;tbs=qdr:m&amp;sa=X&amp;ved=0ahUKEwjUiJruuJnSAhWKpJQKHfrzBCMQpwUIEg&amp;dpr=1.09">在Google搜尋最近一個月關於「how to install rstudio」的影片</a></li>
+<li>可能失效的範例：</li>
+</ul>
+
+<p><a href="http://www.youtube.com/watch?v=Hl24HClmR0Y"><img src="http://img.youtube.com/vi/Hl24HClmR0Y/0.jpg" alt="安裝Rstudio"></a></p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="dark segue" id="slide-9" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+  <hgroup>
+    <h2>RStudio 界面介紹</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="" id="slide-10" style="background:url(assets/img/Workspace1_036.png); background-size: 100% 100%;">
+  <article data-timings="" style="display: table;">
+    <div style="display: table-cell;vertical-align: bottom;">
+      
+    </div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-11" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>程式碼編輯區(1)</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>主要撰寫程式碼的區域</li>
+<li>具備多種功能協助我們使用程式碼</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-12" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>語法錯誤提示</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/error-hint.gif' style='max-width: 100%;max-height: 100%'></img></p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-13" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>自動完成與說明文件</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/auto-completion.gif' style='max-width: 100%;max-height: 100%'></img></p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-14" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>對稱的括號提示</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/parantheses-match.gif' style='max-width: 100%;max-height: 100%'></img></p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-15" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>Console(2)</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/console.gif' style='max-width: 100%;max-height: 100%'></img></p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-16" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>環境資訊(3)</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/Selection_037.png' style='max-width: 100%;max-height: 100%'></img></p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-17" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>檔案系統、說明文件與圖片(4)</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/Selection_039.png' style='max-width: 100%;max-height: 100%'></img></p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-18" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>檔案系統、說明文件與圖片(4)</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/Selection_042.png' style='max-width: 100%;max-height: 100%'></img></p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-19" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>檔案系統、說明文件與圖片(4)</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/Selection_043.png' style='max-width: 100%;max-height: 100%'></img></p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="dark segue" id="slide-20" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+  <hgroup>
+    <h2>上手R 程式撰寫</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-21" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>學習目標</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>了解什麼是<code>expression</code>(敘述)</li>
+<li>了解變數(名字、值)
+
+<ul>
+<li>了解assignment</li>
+</ul></li>
+<li>了解函數、參數</li>
+<li>了解各種括號的用途</li>
+<li>學習簡易套件安裝</li>
+<li>操作Rstudio的功能</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-22" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2><code>expression</code></h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/expression1.gif' style='max-width: 100%;max-height: 100%'></img></p>
+
+</article>
+<!-- Presenter Notes -->
+<aside class="note">
+  <section>
+    <ul>
+<li>介紹 + - * /</li>
+</ul>
+
+  </section>
+</aside>
+</slide>
+<slide class="largecontent" id="slide-23" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2><code>expression</code></h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>R 的程式是由一個又一個的expression所構成</li>
+<li>Console 會回應每一個「完整」的expression</li>
+<li>Console上的<code>&gt;</code>代表「R 正準備接受下一個expression」</li>
+<li><code>Enter</code>代表一個expression的結束</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-24" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2><code>expression</code></h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/expression2.gif' style='max-width: 100%;max-height: 100%'></img></p>
+
+</article>
+<!-- Presenter Notes -->
+<aside class="note">
+  <section>
+    <ul>
+<li>先乘除後加減</li>
+<li>括號最優先: 括號是子expression</li>
+</ul>
+
+  </section>
+</aside>
+</slide>
+<slide class="largecontent" id="slide-25" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2><code>expression</code></h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>先乘除後加減，括號更優先</li>
+<li>Console上的<code>+</code>代表「R 認為expression沒有結束」</li>
+<li>完成expression後R 才會處理</li>
+<li><code>ESC</code>可以中斷expression</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-26" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2><code>expression</code></h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>輸入到console的程式碼，都會被當成expression處理</li>
+<li><code>#</code>之後的程式碼不會被處理，稱為「註解」</li>
+<li>投影片之後會用以下格式Demo程式碼的執行結果:</li>
+</ul>
+
+<pre><code class="r">1 + 1
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+<pre><code class="r">#1 + 1
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-27" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>練習: 請同學估計以下資料所需要的記憶體</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>買電腦的時候，上面會寫：這台筆記型電腦有4GB的記憶體(RAM)</li>
+<li>在電腦中資料的單位：
+
+<ul>
+<li>1個<code>0</code>或<code>1</code>是一個位元(bit)</li>
+<li>8個<code>0</code>或<code>1</code>是一個位元組(Bytes)</li>
+<li>1024個位元組是1KB</li>
+<li>1024KB是1MB</li>
+<li>1024MB是1GB</li>
+</ul></li>
+<li>請問: 1MB是多少位元?</li>
+<li>一個整數需要4個位元組大小的記憶體，請問50000個整數需要多少記憶體? 請用MB為單位</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-28" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>練習: 請同學估計以下資料所需要的記憶體</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>全台灣人的身份證字號與性別的表格</li>
+<li>2300萬人</li>
+<li>身份證字號共10碼，每碼佔用1Bytes</li>
+<li>性別以整數紀錄，<code>0</code> : 女性、<code>1</code>：男性</li>
+<li>請問需要多大的記憶體(MB)儲存上述資料？</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-29" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>練習: 請同學查詢自己的電腦有多少記憶體</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r"># Windows
+system(&quot;wmic memorychip get capacity&quot;)
+# OS X
+system(&quot;top -l 1 | grep PhysMem: | awk &#39;{print $10}&#39;&quot;)
+# Linux
+system(&quot;free -h&quot;)
+</code></pre>
+
+<p>或是看課堂老師的說明</p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-30" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>變數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>變數的概念很接近數學的「未知數」</li>
+<li>範例:</li>
+</ul>
+
+<pre><code class="sh">y = x + 1
+x 代入 1 則 y 為 2
+x 代入 2 則 y 為 3
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-31" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>透過變數，我們可以描述「邏輯」</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>儲存2300萬人的身份證字號與性別需要多大的記憶體(MB)?</li>
+</ul>
+
+<pre><code class="r">2300 * 10000 * (10 + 4) / 1024 / 1024
+</code></pre>
+
+<pre><code>## [1] 307.0831
+</code></pre>
+
+<ul>
+<li>儲存<code>x</code>萬人的身份證字號與性別需要多大的記憶體(MB)?</li>
+</ul>
+
+<pre><code class="r">x * 10000 * (10 + 4) / 1024 / 1024
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-32" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>透過變數，我們可以描述「邏輯」</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>儲存台北市270萬人的身份證字號與性別需要多大的記憶體(MB)?</li>
+</ul>
+
+<pre><code class="r">x = 270
+x * 10000 * (10 + 4) / 1024 / 1024
+</code></pre>
+
+<pre><code>## [1] 36.04889
+</code></pre>
+
+<ul>
+<li>儲存新北市400萬人的身份證字號與性別需要多大的記憶體(MB)?</li>
+</ul>
+
+<pre><code class="r">x = 400
+x * 10000 * (10 + 4) / 1024 / 1024
+</code></pre>
+
+<pre><code>## [1] 53.40576
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-33" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>變數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li><p>描述從<strong>名字</strong>到<strong>值</strong>的關係</p>
+
+<ul>
+<li>每個變數都有一個「名字」與對應的「值」
+<code>r
+x = 270
+</code></li>
+</ul></li>
+<li><p><code>x</code>是名字、值則是<code>270</code></p></li>
+<li><p><code>x = 270</code>這類型的程式碼被稱為<code>assignment</code>(賦值)</p>
+
+<ul>
+<li><code>assignment</code>是不是一種<code>expression</code>?</li>
+</ul></li>
+<li><p>在R 裡面，以下都是assignment</p></li>
+</ul>
+
+<pre><code class="r">x = 1
+x &lt;- 1
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="" id="slide-34" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>練習</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r"># 雲林縣的人口有69萬人、苗栗縣有56萬人、新竹縣有55萬人、嘉義縣有52萬人，
+# 請問儲存以上縣市所有的身份證字號(用10個文字，10 Bytes)、性別(用整數，4 Bytes)與電話號碼(用整數4 Bytes)
+# 需要多少記憶體(MB)? 請用x 的方式寫
+x &lt;- &lt;數字&gt;
+x * 10000 * (&lt;每儲存一個人的資訊所需要的記憶體大小&gt;) / 1024 / 1024
+</code></pre>
+
+<ul>
+<li>提示: 請在<strong>程式碼編輯區</strong>操作
+
+<ol>
+<li>File -&gt; New File -&gt; R Script (CTRL + SHIFT + N)</li>
+<li>嘗試輸入以下的程式碼，並且把<code>&lt;數字&gt;</code>與<code>&lt;每儲存一個人的資訊所需要的記憶體大小&gt;</code>替換成你的<code>expression</code></li>
+<li>當游標在<strong>程式碼編輯區</strong>時，按下CTRL + ENTER可以把程式碼輸入Console</li>
+<li>不同的<code>x &lt;- &lt;數字&gt;</code>可以算出不同的答案</li>
+</ol></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-35" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>可能的答案</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r">x &lt;- 69 # 雲林縣的人口有69萬人
+x * 10000 * (10 + 4 + 4) / 1024 / 1024
+</code></pre>
+
+<pre><code>## [1] 11.84464
+</code></pre>
+
+<pre><code class="r">x &lt;- 56 # 苗栗縣有56萬人
+x * 10000 * (10 + 4 + 4) / 1024 / 1024
+</code></pre>
+
+<pre><code>## [1] 9.613037
+</code></pre>
+
+<pre><code class="r">x &lt;- 55 # 新竹縣有55萬人
+x * 10000 * (10 + 4 + 4) / 1024 / 1024
+</code></pre>
+
+<pre><code>## [1] 9.441376
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-36" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>輸入與輸出的關係</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>輸入是變數<code>x</code>, 輸出是<code>x * 10000 * (10 + 4 + 4) / 1024 / 1024</code></li>
+<li>這是一個函數</li>
+</ul>
+
+<p><img src='assets/img/function.png' style='max-width: 100%;max-height: 100%'></img></p>
+
+<ul>
+<li>R 也可以建立函數: </li>
+</ul>
+
+<pre><code class="r">f &lt;- function(x) x * 10000 * (10 + 4 + 4) / 1024 / 1024
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-37" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>可能的答案</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r">f &lt;- function(x) x * 10000 * (10 + 4 + 4) / 1024 / 1024
+f(69) # 雲林縣的人口有69萬人
+</code></pre>
+
+<pre><code>## [1] 11.84464
+</code></pre>
+
+<pre><code class="r">f(56) # 苗栗縣有56萬人
+</code></pre>
+
+<pre><code>## [1] 9.613037
+</code></pre>
+
+<pre><code class="r">f(55) # 新竹縣有55萬人
+</code></pre>
+
+<pre><code>## [1] 9.441376
+</code></pre>
+
+<pre><code class="r">f(52) # 嘉義縣有52萬人
+</code></pre>
+
+<pre><code>## [1] 8.926392
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-38" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>使用R 會用到大量的函數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r"># 1. 利用地圖資料與natural earth data 上的 urban 資料，畫出類似地球夜景的效果
+# 2. 利用大圓畫出航道
+library(maps)
+library(maptools)
+library(geosphere)
+library(plyr) 
+library(ggplot2)
+library(sp)
+library(rgeos)
+library(grid)
+library(gridExtra)
+airports &lt;- read.csv(url(&quot;http://www.stanford.edu/~cengel/cgi-bin/anthrospace/wp-content/uploads/2012/03/airports.csv&quot;), as.is=TRUE, header=TRUE)
+flights &lt;- read.csv(url(&quot;http://www.stanford.edu/~cengel/cgi-bin/anthrospace/wp-content/uploads/2012/03/PEK-openflights-export-2012-03-19.csv&quot;), as.is=TRUE, header=TRUE)
+# ... 待續
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="" id="slide-39" style="background:url(assets/img/flights_sml.jpg); background-size: 100% 100%;">
+  <article data-timings="" style="display: table;">
+    <div style="display: table-cell;vertical-align: bottom;">
+      
+    </div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-40" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>使用R 會用到大量的函數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>具體提供以下功能的，都是函數
+
+<ul>
+<li>讀取資料</li>
+<li>清理資料</li>
+<li>繪圖</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-41" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>了解R 中的函數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>函數的本質也是變數
+
+<ul>
+<li>函數有名字</li>
+<li>值的本質是函數</li>
+</ul></li>
+</ul>
+
+<pre><code class="r">a &lt;- c(1, 2, 3, 4)
+# 平均數
+mean(a)
+</code></pre>
+
+<pre><code>## [1] 2.5
+</code></pre>
+
+<pre><code class="r">f &lt;- mean
+f(a)
+</code></pre>
+
+<pre><code>## [1] 2.5
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-42" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>了解R 中的函數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><img src='assets/img/Selection_045.png' style='max-width: 100%;max-height: 100%'></img></p>
+
+<ol>
+<li><code>mean</code>: 函數的名字</li>
+<li><code>(</code>、<code>)</code>: 括號。名字後面接括號，代表這個名字的變數是一種函數</li>
+<li><code>a</code>: <code>arguments</code>(參數)</li>
+</ol>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-43" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>了解R 中的函數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>函數就是「動作」
+
+<ul>
+<li>範例：「計算需要的記憶體的動作」, 之前的練習所提到的函數</li>
+<li>範例：「計算x的平均數」, <code>mean(x)</code></li>
+</ul></li>
+<li>名字是動作的名稱
+
+<ul>
+<li><code>mean</code>: 算平均數</li>
+<li><code>sd</code>: 算樣本標準差</li>
+</ul></li>
+<li>參數控制動作
+
+<ul>
+<li><code>mean(x)</code>: 計算x 的平均數</li>
+<li><code>mean(y)</code>: 計算y 的平均數</li>
+<li><code>mean(x, na.rm = TRUE)</code>: 計算x 的平均數，不包含遺失值</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-44" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>了解R 中的函數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>函數就是功能</li>
+<li>R 之中有許許多多的函數
+
+<ul>
+<li>讀取資料的函數</li>
+<li>處理資料的函數</li>
+<li>操作檔案的函數</li>
+<li>輸出資料的函數</li>
+</ul></li>
+<li>R 的套件，提供更多更多的函數</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-45" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>套件</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>有些提供R 沒有提供的功能
+
+<ul>
+<li>處理網頁的套件: <code>XML</code>、<code>xml2</code>、<code>jsonlite</code></li>
+<li>爬網站的套件: <code>httr</code></li>
+<li>跑進階分析(某篇paper的演算法)的套件: <code>supc</code></li>
+</ul></li>
+<li>有些提供類似，但是設計不同的功能
+
+<ul>
+<li>整理資料: <code>dplyr</code></li>
+<li>繪圖: <code>ggplot2</code></li>
+</ul></li>
+<li>有些提供資料
+
+<ul>
+<li>棒球資料: <code>Lahman</code></li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-46" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>套件</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>套件提供函數、函數就是功能，所以套件就是提供「一系列相關主題的功能」</li>
+<li>套件本身都會提供說明文件，解釋如何使用套件
+
+<ul>
+<li><code>examples</code></li>
+<li><code>demo</code></li>
+<li><code>vignettes</code></li>
+</ul></li>
+<li>如果我要找特定功能的套件，怎麼辦?
+
+<ul>
+<li><a href="https://cran.r-project.org/web/views/">CRAN Task Views</a></li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-47" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>安裝套件</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r">install.packages(&quot;ctv&quot;)
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-48" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>載入套件</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r">library(ctv)
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-49" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>使用套件的函數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r">library(ctv)
+# ctv::available.views()
+available.views()
+</code></pre>
+
+<pre><code>## 
+## CRAN Task View
+## --------------
+## Name:       DifferentialEquations
+## Topic:      Differential Equations
+## Maintainer: Karline Soetaert and Thomas Petzoldt
+## Contact:    karline.soetaert@nioz.nl
+## Version:    2017-01-31
+## Repository: http://cran.csie.ntu.edu.tw
+## Packages:   adaptivetau, bvpSolve*, CollocInfer, deSolve*, deTestSet,
+##             ecolMod, FME, GillespieSSA, mkin, nlmeODE, odeintr,
+##             PBSddesolve, PBSmodelling, pomp, pracma, primer, PSM,
+##             ReacTran, rootSolve*, scaRabee, sde*, Sim.DiffProc, simecol
+##             (* = core package)
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-50" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>函數的參數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r">args(install.packages)
+</code></pre>
+
+<pre><code>## function (pkgs, lib, repos = getOption(&quot;repos&quot;), contriburl = contrib.url(repos, 
+##     type), method, available = NULL, destdir = NULL, dependencies = NA, 
+##     type = getOption(&quot;pkgType&quot;), configure.args = getOption(&quot;configure.args&quot;), 
+##     configure.vars = getOption(&quot;configure.vars&quot;), clean = FALSE, 
+##     Ncpus = getOption(&quot;Ncpus&quot;, 1L), verbose = getOption(&quot;verbose&quot;), 
+##     libs_only = FALSE, INSTALL_opts, quiet = FALSE, keep_outputs = FALSE, 
+##     ...) 
+## NULL
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-51" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>函數的參數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li><code>install.packages</code> 負責安裝套件</li>
+</ul>
+
+<pre><code class="r">install.packages
+</code></pre>
+
+<pre><code>## function (pkgs, lib, repos = getOption(&quot;repos&quot;), contriburl = contrib.url(repos, 
+##     type), method, available = NULL, destdir = NULL, dependencies = NA, 
+##     type = getOption(&quot;pkgType&quot;), configure.args = getOption(&quot;configure.args&quot;), 
+##     configure.vars = getOption(&quot;configure.vars&quot;), clean = FALSE, 
+##     Ncpus = getOption(&quot;Ncpus&quot;, 1L), verbose = getOption(&quot;verbose&quot;), 
+##     libs_only = FALSE, INSTALL_opts, quiet = FALSE, keep_outputs = FALSE, 
+##     ...) 
+## {
+##     type2 &lt;- .Platform$pkgType
+##     if (type == &quot;binary&quot;) {
+##         if (type2 == &quot;source&quot;) 
+##             stop(&quot;type &#39;binary&#39; is not supported on this platform&quot;)
+##         else type &lt;- type2
+##         if (type == &quot;both&quot; &amp;&amp; (!missing(contriburl) || !is.null(available))) 
+##             stop(&quot;specifying &#39;contriburl&#39; or &#39;available&#39; requires a single type, not type = \&quot;both\&quot;&quot;)
+##     }
+##     if (is.logical(clean) &amp;&amp; clean) 
+##         clean &lt;- &quot;--clean&quot;
+##     if (is.logical(dependencies) &amp;&amp; is.na(dependencies)) 
+##         dependencies &lt;- if (!missing(lib) &amp;&amp; length(lib) &gt; 1L) 
+##             FALSE
+##         else c(&quot;Depends&quot;, &quot;Imports&quot;, &quot;LinkingTo&quot;)
+##     get_package_name &lt;- function(pkg) {
+##         gsub(&quot;_[.](zip|tar[.]gz|tar[.]bzip2|tar[.]xz)&quot;, &quot;&quot;, gsub(.standard_regexps()$valid_package_version, 
+##             &quot;&quot;, basename(pkg)))
+##     }
+##     getConfigureArgs &lt;- function(pkg) {
+##         if (.Platform$OS.type == &quot;windows&quot;) 
+##             return(character())
+##         if (length(pkgs) == 1L &amp;&amp; length(configure.args) &amp;&amp; length(names(configure.args)) == 
+##             0L) 
+##             return(paste0(&quot;--configure-args=&quot;, shQuote(paste(configure.args, 
+##                 collapse = &quot; &quot;))))
+##         pkg &lt;- get_package_name(pkg)
+##         if (length(configure.args) &amp;&amp; length(names(configure.args)) &amp;&amp; 
+##             pkg %in% names(configure.args)) 
+##             config &lt;- paste0(&quot;--configure-args=&quot;, shQuote(paste(configure.args[[pkg]], 
+##                 collapse = &quot; &quot;)))
+##         else config &lt;- character()
+##         config
+##     }
+##     getConfigureVars &lt;- function(pkg) {
+##         if (.Platform$OS.type == &quot;windows&quot;) 
+##             return(character())
+##         if (length(pkgs) == 1L &amp;&amp; length(configure.vars) &amp;&amp; length(names(configure.vars)) == 
+##             0L) 
+##             return(paste0(&quot;--configure-vars=&quot;, shQuote(paste(configure.vars, 
+##                 collapse = &quot; &quot;))))
+##         pkg &lt;- get_package_name(pkg)
+##         if (length(configure.vars) &amp;&amp; length(names(configure.vars)) &amp;&amp; 
+##             pkg %in% names(configure.vars)) 
+##             config &lt;- paste0(&quot;--configure-vars=&quot;, shQuote(paste(configure.vars[[pkg]], 
+##                 collapse = &quot; &quot;)))
+##         else config &lt;- character()
+##         config
+##     }
+##     get_install_opts &lt;- function(pkg) {
+##         if (!length(INSTALL_opts)) 
+##             character()
+##         else paste(INSTALL_opts[[get_package_name(pkg)]], collapse = &quot; &quot;)
+##     }
+##     if (missing(pkgs) || !length(pkgs)) {
+##         if (!interactive()) 
+##             stop(&quot;no packages were specified&quot;)
+##         if (.Platform$OS.type == &quot;windows&quot; || .Platform$GUI == 
+##             &quot;AQUA&quot; || (capabilities(&quot;tcltk&quot;) &amp;&amp; capabilities(&quot;X11&quot;) &amp;&amp; 
+##             suppressWarnings(tcltk::.TkUp))) {
+##         }
+##         else stop(&quot;no packages were specified&quot;)
+##         if (is.null(available)) {
+##             av &lt;- available.packages(contriburl = contriburl, 
+##                 method = method)
+##             if (missing(repos)) 
+##                 repos &lt;- getOption(&quot;repos&quot;)
+##             if (type != &quot;both&quot;) 
+##                 available &lt;- av
+##         }
+##         else av &lt;- available
+##         if (NROW(av)) {
+##             pkgs &lt;- select.list(sort(unique(rownames(av))), multiple = TRUE, 
+##                 title = &quot;Packages&quot;, graphics = TRUE)
+##         }
+##         if (!length(pkgs)) 
+##             stop(&quot;no packages were specified&quot;)
+##     }
+##     if (missing(lib) || is.null(lib)) {
+##         lib &lt;- .libPaths()[1L]
+##         if (!quiet &amp;&amp; length(.libPaths()) &gt; 1L) 
+##             message(sprintf(ngettext(length(pkgs), &quot;Installing package into %s\n(as %s is unspecified)&quot;, 
+##                 &quot;Installing packages into %s\n(as %s is unspecified)&quot;), 
+##                 sQuote(lib), sQuote(&quot;lib&quot;)), domain = NA)
+##     }
+##     ok &lt;- dir.exists(lib) &amp; (file.access(lib, 2) == 0L)
+##     if (length(lib) &gt; 1 &amp;&amp; any(!ok)) 
+##         stop(sprintf(ngettext(sum(!ok), &quot;&#39;lib&#39; element %s is not a writable directory&quot;, 
+##             &quot;&#39;lib&#39; elements %s are not writable directories&quot;), 
+##             paste(sQuote(lib[!ok]), collapse = &quot;, &quot;)), domain = NA)
+##     if (length(lib) == 1L &amp;&amp; .Platform$OS.type == &quot;windows&quot;) {
+##         ok &lt;- dir.exists(lib)
+##         if (ok) {
+##             fn &lt;- file.path(lib, paste(&quot;_test_dir&quot;, Sys.getpid(), 
+##                 sep = &quot;_&quot;))
+##             unlink(fn, recursive = TRUE)
+##             res &lt;- try(dir.create(fn, showWarnings = FALSE))
+##             if (inherits(res, &quot;try-error&quot;) || !res) 
+##                 ok &lt;- FALSE
+##             else unlink(fn, recursive = TRUE)
+##         }
+##     }
+##     if (length(lib) == 1L &amp;&amp; !ok) {
+##         warning(gettextf(&quot;&#39;lib = \&quot;%s\&quot;&#39; is not writable&quot;, lib), 
+##             domain = NA, immediate. = TRUE)
+##         userdir &lt;- unlist(strsplit(Sys.getenv(&quot;R_LIBS_USER&quot;), 
+##             .Platform$path.sep))[1L]
+##         if (interactive()) {
+##             ask.yes.no &lt;- function(msg) {
+##                 msg &lt;- gettext(msg)
+##                 if (.Platform$OS.type == &quot;windows&quot;) {
+##                   flush.console()
+##                   ans &lt;- winDialog(&quot;yesno&quot;, sprintf(msg, sQuote(userdir)))
+##                   if (ans != &quot;YES&quot;) 
+##                     &quot;no&quot;
+##                   else ans
+##                 }
+##                 else {
+##                   ans &lt;- readline(paste(sprintf(msg, userdir), 
+##                     &quot; (y/n) &quot;))
+##                   if (substr(ans, 1L, 1L) == &quot;n&quot;) 
+##                     &quot;no&quot;
+##                   else ans
+##                 }
+##             }
+##             ans &lt;- ask.yes.no(&quot;Would you like to use a personal library instead?&quot;)
+##             if (identical(ans, &quot;no&quot;)) 
+##                 stop(&quot;unable to install packages&quot;)
+##             lib &lt;- userdir
+##             if (!file.exists(userdir)) {
+##                 ans &lt;- ask.yes.no(&quot;Would you like to create a personal library\n%s\nto install packages into?&quot;)
+##                 if (identical(ans, &quot;no&quot;)) 
+##                   stop(&quot;unable to install packages&quot;)
+##                 if (!dir.create(userdir, recursive = TRUE)) 
+##                   stop(gettextf(&quot;unable to create %s&quot;, sQuote(userdir)), 
+##                     domain = NA)
+##                 .libPaths(c(userdir, .libPaths()))
+##             }
+##         }
+##         else stop(&quot;unable to install packages&quot;)
+##     }
+##     lib &lt;- normalizePath(lib)
+##     if (length(pkgs) == 1L &amp;&amp; missing(repos) &amp;&amp; missing(contriburl)) {
+##         if ((type == &quot;source&quot; &amp;&amp; any(grepl(&quot;[.]tar[.](gz|bz2|xz)$&quot;, 
+##             pkgs))) || (type %in% &quot;win.binary&quot; &amp;&amp; length(grep(&quot;[.]zip$&quot;, 
+##             pkgs))) || (substr(type, 1L, 10L) == &quot;mac.binary&quot; &amp;&amp; 
+##             grepl(&quot;[.]tgz$&quot;, pkgs))) {
+##             repos &lt;- NULL
+##             message(&quot;inferring &#39;repos = NULL&#39; from &#39;pkgs&#39;&quot;)
+##         }
+##         if (type == &quot;both&quot;) {
+##             if (type2 %in% &quot;win.binary&quot; &amp;&amp; grepl(&quot;[.]zip$&quot;, pkgs)) {
+##                 repos &lt;- NULL
+##                 type &lt;- type2
+##                 message(&quot;inferring &#39;repos = NULL&#39; from &#39;pkgs&#39;&quot;)
+##             }
+##             else if (substr(type2, 1L, 10L) == &quot;mac.binary&quot; &amp;&amp; 
+##                 grepl(&quot;[.]tgz$&quot;, pkgs)) {
+##                 repos &lt;- NULL
+##                 type &lt;- type2
+##                 message(&quot;inferring &#39;repos = NULL&#39; from &#39;pkgs&#39;&quot;)
+##             }
+##             else if (grepl(&quot;[.]tar[.](gz|bz2|xz)$&quot;, pkgs)) {
+##                 repos &lt;- NULL
+##                 type &lt;- &quot;source&quot;
+##                 message(&quot;inferring &#39;repos = NULL&#39; from &#39;pkgs&#39;&quot;)
+##             }
+##         }
+##     }
+##     if (length(pkgs) == 1L &amp;&amp; is.null(repos) &amp;&amp; type == &quot;both&quot;) {
+##         if ((type2 %in% &quot;win.binary&quot; &amp;&amp; grepl(&quot;[.]zip$&quot;, pkgs)) || 
+##             (substr(type2, 1L, 10L) == &quot;mac.binary&quot; &amp;&amp; grepl(&quot;[.]tgz$&quot;, 
+##                 pkgs))) {
+##             type &lt;- type2
+##         }
+##         else if (grepl(&quot;[.]tar[.](gz|bz2|xz)$&quot;, pkgs)) {
+##             type &lt;- &quot;source&quot;
+##         }
+##     }
+##     if (is.null(repos) &amp;&amp; missing(contriburl)) {
+##         tmpd &lt;- destdir
+##         nonlocalrepos &lt;- any(web &lt;- grepl(&quot;^(http|https|ftp)://&quot;, 
+##             pkgs))
+##         if (is.null(destdir) &amp;&amp; nonlocalrepos) {
+##             tmpd &lt;- file.path(tempdir(), &quot;downloaded_packages&quot;)
+##             if (!file.exists(tmpd) &amp;&amp; !dir.create(tmpd)) 
+##                 stop(gettextf(&quot;unable to create temporary directory %s&quot;, 
+##                   sQuote(tmpd)), domain = NA)
+##         }
+##         if (nonlocalrepos) {
+##             urls &lt;- pkgs[web]
+##             for (p in unique(urls)) {
+##                 this &lt;- pkgs == p
+##                 destfile &lt;- file.path(tmpd, basename(p))
+##                 res &lt;- try(download.file(p, destfile, method, 
+##                   mode = &quot;wb&quot;, ...))
+##                 if (!inherits(res, &quot;try-error&quot;) &amp;&amp; res == 0L) 
+##                   pkgs[this] &lt;- destfile
+##                 else {
+##                   pkgs[this] &lt;- NA
+##                 }
+##             }
+##         }
+##     }
+##     if (type == &quot;both&quot;) {
+##         if (type2 == &quot;source&quot;) 
+##             stop(&quot;type == \&quot;both\&quot; can only be used on Windows or a CRAN build for macOS&quot;)
+##         if (!missing(contriburl) || !is.null(available)) 
+##             type &lt;- type2
+##     }
+##     getDeps &lt;- TRUE
+##     if (type == &quot;both&quot;) {
+##         if (is.null(repos)) 
+##             stop(&quot;type == \&quot;both\&quot; cannot be used with &#39;repos = NULL&#39;&quot;)
+##         type &lt;- &quot;source&quot;
+##         contriburl &lt;- contrib.url(repos, &quot;source&quot;)
+##         if (missing(repos)) 
+##             repos &lt;- getOption(&quot;repos&quot;)
+##         available &lt;- available.packages(contriburl = contriburl, 
+##             method = method, fields = &quot;NeedsCompilation&quot;)
+##         pkgs &lt;- getDependencies(pkgs, dependencies, available, 
+##             lib)
+##         getDeps &lt;- FALSE
+##         av2 &lt;- available.packages(contriburl = contrib.url(repos, 
+##             type2), method = method)
+##         bins &lt;- row.names(av2)
+##         bins &lt;- pkgs[pkgs %in% bins]
+##         srcOnly &lt;- pkgs[!pkgs %in% bins]
+##         binvers &lt;- av2[bins, &quot;Version&quot;]
+##         hasSrc &lt;- !is.na(av2[bins, &quot;Archs&quot;])
+##         srcvers &lt;- available[bins, &quot;Version&quot;]
+##         later &lt;- as.numeric_version(binvers) &lt; srcvers
+##         action &lt;- getOption(&quot;install.packages.compile.from.source&quot;, 
+##             &quot;interactive&quot;)
+##         if (!nzchar(Sys.which(Sys.getenv(&quot;MAKE&quot;, &quot;make&quot;)))) 
+##             action &lt;- &quot;never&quot;
+##         if (any(later)) {
+##             msg &lt;- ngettext(sum(later), &quot;There is a binary version available but the source version is later&quot;, 
+##                 &quot;There are binary versions available but the source versions are later&quot;)
+##             cat(&quot;\n&quot;, paste(strwrap(msg, indent = 2, exdent = 2), 
+##                 collapse = &quot;\n&quot;), &quot;:\n&quot;, sep = &quot;&quot;)
+##             out &lt;- data.frame(binary = binvers, source = srcvers, 
+##                 needs_compilation = hasSrc, row.names = bins, 
+##                 check.names = FALSE)[later, ]
+##             print(out)
+##             cat(&quot;\n&quot;)
+##             if (any(later &amp; hasSrc)) {
+##                 if (action == &quot;interactive&quot; &amp;&amp; interactive()) {
+##                   msg &lt;- ngettext(sum(later &amp; hasSrc), &quot;Do you want to install from sources the package which needs compilation?&quot;, 
+##                     &quot;Do you want to install from sources the packages which need compilation?&quot;)
+##                   message(msg, domain = NA)
+##                   res &lt;- readline(&quot;y/n: &quot;)
+##                   if (res != &quot;y&quot;) 
+##                     later &lt;- later &amp; !hasSrc
+##                 }
+##                 else if (action == &quot;never&quot;) {
+##                   cat(&quot;  Binaries will be installed\n&quot;)
+##                   later &lt;- later &amp; !hasSrc
+##                 }
+##             }
+##         }
+##         bins &lt;- bins[!later]
+##         if (length(srcOnly)) {
+##             s2 &lt;- srcOnly[!(available[srcOnly, &quot;NeedsCompilation&quot;] %in% 
+##                 &quot;no&quot;)]
+##             if (length(s2)) {
+##                 msg &lt;- ngettext(length(s2), &quot;Package which is only available in source form, and may need compilation of C/C++/Fortran&quot;, 
+##                   &quot;Packages which are only available in source form, and may need compilation of C/C++/Fortran&quot;)
+##                 msg &lt;- c(paste0(msg, &quot;: &quot;), sQuote(s2))
+##                 msg &lt;- strwrap(paste(msg, collapse = &quot; &quot;), exdent = 2)
+##                 message(paste(msg, collapse = &quot;\n&quot;), domain = NA)
+##                 if (action == &quot;interactive&quot; &amp;&amp; interactive()) {
+##                   message(&quot;Do you want to attempt to install these from sources?&quot;)
+##                   res &lt;- readline(&quot;y/n: &quot;)
+##                   if (res != &quot;y&quot;) 
+##                     pkgs &lt;- setdiff(pkgs, s2)
+##                 }
+##                 else if (action == &quot;never&quot;) {
+##                   cat(&quot;  These will not be installed\n&quot;)
+##                   pkgs &lt;- setdiff(pkgs, s2)
+##                 }
+##             }
+##         }
+##         if (length(bins)) {
+##             if (type2 == &quot;win.binary&quot;) 
+##                 .install.winbinary(pkgs = bins, lib = lib, contriburl = contrib.url(repos, 
+##                   type2), method = method, available = av2, destdir = destdir, 
+##                   dependencies = NULL, libs_only = libs_only, 
+##                   quiet = quiet, ...)
+##             else .install.macbinary(pkgs = bins, lib = lib, contriburl = contrib.url(repos, 
+##                 type2), method = method, available = av2, destdir = destdir, 
+##                 dependencies = NULL, quiet = quiet, ...)
+##         }
+##         pkgs &lt;- setdiff(pkgs, bins)
+##         if (!length(pkgs)) 
+##             return(invisible())
+##         message(sprintf(ngettext(length(pkgs), &quot;installing the source package %s&quot;, 
+##             &quot;installing the source packages %s&quot;), paste(sQuote(pkgs), 
+##             collapse = &quot;, &quot;)), &quot;\n&quot;, domain = NA)
+##         flush.console()
+##     }
+##     else if (getOption(&quot;install.packages.check.source&quot;, &quot;yes&quot;) %in% 
+##         &quot;yes&quot; &amp;&amp; (type %in% &quot;win.binary&quot; || substr(type, 1L, 
+##         10L) == &quot;mac.binary&quot;)) {
+##         if (missing(contriburl) &amp;&amp; is.null(available) &amp;&amp; !is.null(repos)) {
+##             contriburl2 &lt;- contrib.url(repos, &quot;source&quot;)
+##             if (missing(repos)) 
+##                 repos &lt;- getOption(&quot;repos&quot;)
+##             av1 &lt;- tryCatch(suppressWarnings(available.packages(contriburl = contriburl2, 
+##                 method = method)), error = function(e) e)
+##             if (inherits(av1, &quot;error&quot;)) {
+##                 message(&quot;source repository is unavailable to check versions&quot;)
+##                 available &lt;- available.packages(contriburl = contrib.url(repos, 
+##                   type), method = method)
+##             }
+##             else {
+##                 srcpkgs &lt;- pkgs[pkgs %in% row.names(av1)]
+##                 available &lt;- available.packages(contriburl = contrib.url(repos, 
+##                   type), method = method)
+##                 bins &lt;- pkgs[pkgs %in% row.names(available)]
+##                 na &lt;- srcpkgs[!srcpkgs %in% bins]
+##                 if (length(na)) {
+##                   msg &lt;- sprintf(ngettext(length(na), &quot;package %s is available as a source package but not as a binary&quot;, 
+##                     &quot;packages %s are available as source packages but not as binaries&quot;), 
+##                     paste(sQuote(na), collapse = &quot;, &quot;))
+##                   cat(&quot;\n   &quot;, msg, &quot;\n\n&quot;, sep = &quot;&quot;)
+##                 }
+##                 binvers &lt;- available[bins, &quot;Version&quot;]
+##                 srcvers &lt;- binvers
+##                 OK &lt;- bins %in% srcpkgs
+##                 srcvers[OK] &lt;- av1[bins[OK], &quot;Version&quot;]
+##                 later &lt;- as.numeric_version(binvers) &lt; srcvers
+##                 if (any(later)) {
+##                   msg &lt;- ngettext(sum(later), &quot;There is a binary version available (and will be installed) but the source version is later&quot;, 
+##                     &quot;There are binary versions available (and will be installed) but the source versions are later&quot;)
+##                   cat(&quot;\n&quot;, paste(strwrap(msg, indent = 2, exdent = 2), 
+##                     collapse = &quot;\n&quot;), &quot;:\n&quot;, sep = &quot;&quot;)
+##                   print(data.frame(binary = binvers, source = srcvers, 
+##                     row.names = bins, check.names = FALSE)[later, 
+##                     ])
+##                   cat(&quot;\n&quot;)
+##                 }
+##             }
+##         }
+##     }
+##     if (.Platform$OS.type == &quot;windows&quot;) {
+##         if (substr(type, 1L, 10L) == &quot;mac.binary&quot;) 
+##             stop(&quot;cannot install macOS binary packages on Windows&quot;)
+##         if (type %in% &quot;win.binary&quot;) {
+##             .install.winbinary(pkgs = pkgs, lib = lib, contriburl = contriburl, 
+##                 method = method, available = available, destdir = destdir, 
+##                 dependencies = dependencies, libs_only = libs_only, 
+##                 quiet = quiet, ...)
+##             return(invisible())
+##         }
+##         have_spaces &lt;- grep(&quot; &quot;, pkgs)
+##         if (length(have_spaces)) {
+##             p &lt;- pkgs[have_spaces]
+##             dirs &lt;- shortPathName(dirname(p))
+##             pkgs[have_spaces] &lt;- file.path(dirs, basename(p))
+##         }
+##         pkgs &lt;- gsub(&quot;\\\\&quot;, &quot;/&quot;, pkgs)
+##     }
+##     else {
+##         if (substr(type, 1L, 10L) == &quot;mac.binary&quot;) {
+##             if (!grepl(&quot;darwin&quot;, R.version$platform)) 
+##                 stop(&quot;cannot install macOS binary packages on this platform&quot;)
+##             .install.macbinary(pkgs = pkgs, lib = lib, contriburl = contriburl, 
+##                 method = method, available = available, destdir = destdir, 
+##                 dependencies = dependencies, quiet = quiet, ...)
+##             return(invisible())
+##         }
+##         if (type %in% &quot;win.binary&quot;) 
+##             stop(&quot;cannot install Windows binary packages on this platform&quot;)
+##         if (!file.exists(file.path(R.home(&quot;bin&quot;), &quot;INSTALL&quot;))) 
+##             stop(&quot;This version of R is not set up to install source packages\nIf it was installed from an RPM, you may need the R-devel RPM&quot;)
+##     }
+##     libpath &lt;- .libPaths()
+##     libpath &lt;- libpath[!libpath %in% .Library]
+##     if (length(libpath)) 
+##         libpath &lt;- paste(libpath, collapse = .Platform$path.sep)
+##     cmd0 &lt;- file.path(R.home(&quot;bin&quot;), &quot;R&quot;)
+##     args0 &lt;- c(&quot;CMD&quot;, &quot;INSTALL&quot;)
+##     output &lt;- if (quiet) 
+##         FALSE
+##     else &quot;&quot;
+##     env &lt;- character()
+##     outdir &lt;- getwd()
+##     if (is.logical(keep_outputs)) {
+##         if (is.na(keep_outputs)) 
+##             keep_outputs &lt;- FALSE
+##     }
+##     else if (is.character(keep_outputs) &amp;&amp; (length(keep_outputs) == 
+##         1L)) {
+##         if (!dir.exists(keep_outputs) &amp;&amp; !dir.create(keep_outputs, 
+##             recursive = TRUE)) 
+##             stop(gettextf(&quot;unable to create %s&quot;, sQuote(keep_outputs)), 
+##                 domain = NA)
+##         outdir &lt;- normalizePath(keep_outputs)
+##         keep_outputs &lt;- TRUE
+##     }
+##     else stop(gettextf(&quot;invalid %s argument&quot;, sQuote(&quot;keep_outputs&quot;)), 
+##         domain = NA)
+##     if (length(libpath)) {
+##         if (.Platform$OS.type == &quot;windows&quot;) {
+##             oldrlibs &lt;- Sys.getenv(&quot;R_LIBS&quot;)
+##             Sys.setenv(R_LIBS = libpath)
+##             on.exit(Sys.setenv(R_LIBS = oldrlibs))
+##         }
+##         else env &lt;- paste(&quot;R_LIBS&quot;, shQuote(libpath), sep = &quot;=&quot;)
+##     }
+##     if (is.character(clean)) 
+##         args0 &lt;- c(args0, clean)
+##     if (libs_only) 
+##         args0 &lt;- c(args0, &quot;--libs-only&quot;)
+##     if (!missing(INSTALL_opts)) {
+##         if (!is.list(INSTALL_opts)) {
+##             args0 &lt;- c(args0, paste(INSTALL_opts, collapse = &quot; &quot;))
+##             INSTALL_opts &lt;- list()
+##         }
+##     }
+##     else {
+##         INSTALL_opts &lt;- list()
+##     }
+##     if (verbose) 
+##         message(gettextf(&quot;system (cmd0): %s&quot;, paste(c(cmd0, args0), 
+##             collapse = &quot; &quot;)), domain = NA)
+##     if (is.null(repos) &amp; missing(contriburl)) {
+##         update &lt;- cbind(path.expand(pkgs), lib)
+##         for (i in seq_len(nrow(update))) {
+##             if (is.na(update[i, 1L])) 
+##                 next
+##             args &lt;- c(args0, get_install_opts(update[i, 1L]), 
+##                 &quot;-l&quot;, shQuote(update[i, 2L]), getConfigureArgs(update[i, 
+##                   1L]), getConfigureVars(update[i, 1L]), shQuote(update[i, 
+##                   1L]))
+##             status &lt;- system2(cmd0, args, env = env, stdout = output, 
+##                 stderr = output)
+##             if (status &gt; 0L) 
+##                 warning(gettextf(&quot;installation of package %s had non-zero exit status&quot;, 
+##                   sQuote(update[i, 1L])), domain = NA)
+##             else if (verbose) {
+##                 cmd &lt;- paste(c(cmd0, args), collapse = &quot; &quot;)
+##                 message(sprintf(&quot;%d): succeeded &#39;%s&#39;&quot;, i, cmd), 
+##                   domain = NA)
+##             }
+##         }
+##         return(invisible())
+##     }
+##     tmpd &lt;- destdir
+##     nonlocalrepos &lt;- length(grep(&quot;^file:&quot;, contriburl)) &lt; length(contriburl)
+##     if (is.null(destdir) &amp;&amp; nonlocalrepos) {
+##         tmpd &lt;- file.path(tempdir(), &quot;downloaded_packages&quot;)
+##         if (!file.exists(tmpd) &amp;&amp; !dir.create(tmpd)) 
+##             stop(gettextf(&quot;unable to create temporary directory %s&quot;, 
+##                 sQuote(tmpd)), domain = NA)
+##     }
+##     if (is.null(available)) 
+##         available &lt;- available.packages(contriburl = contriburl, 
+##             method = method)
+##     if (getDeps) 
+##         pkgs &lt;- getDependencies(pkgs, dependencies, available, 
+##             lib)
+##     foundpkgs &lt;- download.packages(pkgs, destdir = tmpd, available = available, 
+##         contriburl = contriburl, method = method, type = &quot;source&quot;, 
+##         quiet = quiet, ...)
+##     if (length(foundpkgs)) {
+##         if (verbose) 
+##             message(gettextf(&quot;foundpkgs: %s&quot;, paste(foundpkgs, 
+##                 collapse = &quot;, &quot;)), domain = NA)
+##         update &lt;- unique(cbind(pkgs, lib))
+##         colnames(update) &lt;- c(&quot;Package&quot;, &quot;LibPath&quot;)
+##         found &lt;- pkgs %in% foundpkgs[, 1L]
+##         files &lt;- foundpkgs[match(pkgs[found], foundpkgs[, 1L]), 
+##             2L]
+##         if (verbose) 
+##             message(gettextf(&quot;files: %s&quot;, paste(files, collapse = &quot;, \n\t&quot;)), 
+##                 domain = NA)
+##         update &lt;- cbind(update[found, , drop = FALSE], file = files)
+##         if (nrow(update) &gt; 1L) {
+##             upkgs &lt;- unique(pkgs &lt;- update[, 1L])
+##             DL &lt;- .make_dependency_list(upkgs, available)
+##             p0 &lt;- .find_install_order(upkgs, DL)
+##             update &lt;- update[sort.list(match(pkgs, p0)), ]
+##         }
+##         if (Ncpus &gt; 1L &amp;&amp; nrow(update) &gt; 1L) {
+##             args0 &lt;- c(args0, &quot;--pkglock&quot;)
+##             tmpd &lt;- file.path(tempdir(), &quot;make_packages&quot;)
+##             if (!file.exists(tmpd) &amp;&amp; !dir.create(tmpd)) 
+##                 stop(gettextf(&quot;unable to create temporary directory %s&quot;, 
+##                   sQuote(tmpd)), domain = NA)
+##             mfile &lt;- file.path(tmpd, &quot;Makefile&quot;)
+##             conn &lt;- file(mfile, &quot;wt&quot;)
+##             deps &lt;- paste(paste0(update[, 1L], &quot;.ts&quot;), collapse = &quot; &quot;)
+##             deps &lt;- strwrap(deps, width = 75, exdent = 2)
+##             deps &lt;- paste(deps, collapse = &quot; \\\n&quot;)
+##             cat(&quot;all: &quot;, deps, &quot;\n&quot;, sep = &quot;&quot;, file = conn)
+##             aDL &lt;- .make_dependency_list(upkgs, available, recursive = TRUE)
+##             for (i in seq_len(nrow(update))) {
+##                 pkg &lt;- update[i, 1L]
+##                 args &lt;- c(args0, get_install_opts(update[i, 3L]), 
+##                   &quot;-l&quot;, shQuote(update[i, 2L]), getConfigureArgs(update[i, 
+##                     3L]), getConfigureVars(update[i, 3L]), shQuote(update[i, 
+##                     3L]), &quot;&gt;&quot;, paste0(pkg, &quot;.out&quot;), &quot;2&gt;&amp;1&quot;)
+##                 cmd &lt;- paste(c(&quot;MAKEFLAGS=&quot;, shQuote(cmd0), args), 
+##                   collapse = &quot; &quot;)
+##                 deps &lt;- aDL[[pkg]]
+##                 deps &lt;- deps[deps %in% upkgs]
+##                 deps &lt;- if (length(deps)) 
+##                   paste(paste0(deps, &quot;.ts&quot;), collapse = &quot; &quot;)
+##                 else &quot;&quot;
+##                 cat(paste0(pkg, &quot;.ts: &quot;, deps), paste(&quot;\t@echo begin installing package&quot;, 
+##                   sQuote(pkg)), paste0(&quot;\t@&quot;, cmd, &quot; &amp;&amp; touch &quot;, 
+##                   pkg, &quot;.ts&quot;), paste0(&quot;\t@cat &quot;, pkg, &quot;.out&quot;), 
+##                   &quot;&quot;, sep = &quot;\n&quot;, file = conn)
+##             }
+##             close(conn)
+##             cwd &lt;- setwd(tmpd)
+##             on.exit(setwd(cwd))
+##             status &lt;- system2(Sys.getenv(&quot;MAKE&quot;, &quot;make&quot;), c(&quot;-k -j&quot;, 
+##                 Ncpus), stdout = output, stderr = output, env = env)
+##             if (status &gt; 0L) {
+##                 pkgs &lt;- update[, 1L]
+##                 tss &lt;- sub(&quot;[.]ts$&quot;, &quot;&quot;, dir(&quot;.&quot;, pattern = &quot;[.]ts$&quot;))
+##                 failed &lt;- pkgs[!pkgs %in% tss]
+##                 for (pkg in failed) system(paste0(&quot;cat &quot;, pkg, 
+##                   &quot;.out&quot;))
+##                 warning(gettextf(&quot;installation of one or more packages failed,\n  probably %s&quot;, 
+##                   paste(sQuote(failed), collapse = &quot;, &quot;)), domain = NA)
+##             }
+##             if (keep_outputs) 
+##                 file.copy(paste0(update[, 1L], &quot;.out&quot;), outdir)
+##             setwd(cwd)
+##             on.exit()
+##             unlink(tmpd, recursive = TRUE)
+##         }
+##         else {
+##             outfiles &lt;- paste0(update[, 1L], &quot;.out&quot;)
+##             for (i in seq_len(nrow(update))) {
+##                 outfile &lt;- if (keep_outputs) 
+##                   outfiles[i]
+##                 else output
+##                 args &lt;- c(args0, get_install_opts(update[i, 3L]), 
+##                   &quot;-l&quot;, shQuote(update[i, 2L]), getConfigureArgs(update[i, 
+##                     3L]), getConfigureVars(update[i, 3L]), update[i, 
+##                     3L])
+##                 status &lt;- system2(cmd0, args, env = env, stdout = outfile, 
+##                   stderr = outfile)
+##                 if (!quiet &amp;&amp; keep_outputs) 
+##                   writeLines(readLines(outfile))
+##                 if (status &gt; 0L) 
+##                   warning(gettextf(&quot;installation of package %s had non-zero exit status&quot;, 
+##                     sQuote(update[i, 1L])), domain = NA)
+##                 else if (verbose) {
+##                   cmd &lt;- paste(c(cmd0, args), collapse = &quot; &quot;)
+##                   message(sprintf(&quot;%d): succeeded &#39;%s&#39;&quot;, i, cmd), 
+##                     domain = NA)
+##                 }
+##             }
+##             if (keep_outputs &amp;&amp; (outdir != getwd())) {
+##                 file.copy(outfiles, outdir)
+##                 file.remove(outfiles)
+##             }
+##         }
+##         if (!quiet &amp;&amp; nonlocalrepos &amp;&amp; !is.null(tmpd) &amp;&amp; is.null(destdir)) 
+##             cat(&quot;\n&quot;, gettextf(&quot;The downloaded source packages are in\n\t%s&quot;, 
+##                 sQuote(normalizePath(tmpd, mustWork = FALSE))), 
+##                 &quot;\n&quot;, sep = &quot;&quot;, file = stderr())
+##         libs_used &lt;- unique(update[, 2L])
+##         if (.Platform$OS.type == &quot;unix&quot; &amp;&amp; .Library %in% libs_used) {
+##             message(&quot;Updating HTML index of packages in &#39;.Library&#39;&quot;)
+##             make.packages.html(.Library)
+##         }
+##     }
+##     else if (!is.null(tmpd) &amp;&amp; is.null(destdir)) 
+##         unlink(tmpd, TRUE)
+##     invisible()
+## }
+## &lt;bytecode: 0x3272b30&gt;
+## &lt;environment: namespace:utils&gt;
+</code></pre>
+
+<ul>
+<li>電腦需要知道動作的細節才能運作:
+
+<ul>
+<li>要安裝什麼套件?</li>
+<li>從哪裡安裝套件?</li>
+<li class='..'>以及其他種種細節</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-52" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>函數的參數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code>## function (pkgs, lib, repos = getOption(&quot;repos&quot;), contriburl = contrib.url(repos, 
+##     type), method, available = NULL, destdir = NULL, dependencies = NA, 
+##     type = getOption(&quot;pkgType&quot;), configure.args = getOption(&quot;configure.args&quot;), 
+##     configure.vars = getOption(&quot;configure.vars&quot;), clean = FALSE, 
+##     Ncpus = getOption(&quot;Ncpus&quot;, 1L), verbose = getOption(&quot;verbose&quot;), 
+##     libs_only = FALSE, INSTALL_opts, quiet = FALSE, keep_outputs = FALSE, 
+##     ...) 
+## NULL
+</code></pre>
+
+<ul>
+<li>一個函數的參數可以有很多個</li>
+<li>每個參數都有對應的「名字」</li>
+<li><code>install.packages</code>的參數有: <code>pkg</code>、<code>lib</code>、<code>repos</code>...
+
+<ul>
+<li><code>pkg</code> 代表「要安裝的套件的名稱」</li>
+<li><code>repos</code> 代表「提供套件的網站」</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-53" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>函數的參數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code>## function (pkgs, lib, repos = getOption(&quot;repos&quot;), contriburl = contrib.url(repos, 
+##     type), method, available = NULL, destdir = NULL, dependencies = NA, 
+##     type = getOption(&quot;pkgType&quot;), configure.args = getOption(&quot;configure.args&quot;), 
+##     configure.vars = getOption(&quot;configure.vars&quot;), clean = FALSE, 
+##     Ncpus = getOption(&quot;Ncpus&quot;, 1L), verbose = getOption(&quot;verbose&quot;), 
+##     libs_only = FALSE, INSTALL_opts, quiet = FALSE, keep_outputs = FALSE, 
+##     ...) 
+## NULL
+</code></pre>
+
+<pre><code class="r">install.packages(&quot;ctv&quot;)
+</code></pre>
+
+<ul>
+<li><code>pkg</code> : <code>&quot;ctv&quot;</code></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-54" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>函數的參數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code>## function (pkgs, lib, repos = getOption(&quot;repos&quot;), contriburl = contrib.url(repos, 
+##     type), method, available = NULL, destdir = NULL, dependencies = NA, 
+##     type = getOption(&quot;pkgType&quot;), configure.args = getOption(&quot;configure.args&quot;), 
+##     configure.vars = getOption(&quot;configure.vars&quot;), clean = FALSE, 
+##     Ncpus = getOption(&quot;Ncpus&quot;, 1L), verbose = getOption(&quot;verbose&quot;), 
+##     libs_only = FALSE, INSTALL_opts, quiet = FALSE, keep_outputs = FALSE, 
+##     ...) 
+## NULL
+</code></pre>
+
+<pre><code class="r">install.packages(&quot;ctv&quot;, &quot;http://cran.csie.ntu.edu.tw&quot;)
+</code></pre>
+
+<ul>
+<li><code>pkg</code> : <code>&quot;ctv&quot;</code></li>
+<li><code>lib</code> : <code>&quot;http://cran.csie.ntu.edu.tw&quot;</code></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-55" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>函數的參數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code>## function (pkgs, lib, repos = getOption(&quot;repos&quot;), contriburl = contrib.url(repos, 
+##     type), method, available = NULL, destdir = NULL, dependencies = NA, 
+##     type = getOption(&quot;pkgType&quot;), configure.args = getOption(&quot;configure.args&quot;), 
+##     configure.vars = getOption(&quot;configure.vars&quot;), clean = FALSE, 
+##     Ncpus = getOption(&quot;Ncpus&quot;, 1L), verbose = getOption(&quot;verbose&quot;), 
+##     libs_only = FALSE, INSTALL_opts, quiet = FALSE, keep_outputs = FALSE, 
+##     ...) 
+## NULL
+</code></pre>
+
+<pre><code class="r">install.packages(&quot;ctv&quot;, repos = &quot;http://cran.csie.ntu.edu.tw&quot;)
+</code></pre>
+
+<ul>
+<li><code>pkg</code> : <code>&quot;ctv&quot;</code></li>
+<li><code>repos</code> : <code>&quot;http://cran.csie.ntu.edu.tw&quot;</code></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-56" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>函數的參數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code>## function (pkgs, lib, repos = getOption(&quot;repos&quot;), contriburl = contrib.url(repos, 
+##     type), method, available = NULL, destdir = NULL, dependencies = NA, 
+##     type = getOption(&quot;pkgType&quot;), configure.args = getOption(&quot;configure.args&quot;), 
+##     configure.vars = getOption(&quot;configure.vars&quot;), clean = FALSE, 
+##     Ncpus = getOption(&quot;Ncpus&quot;, 1L), verbose = getOption(&quot;verbose&quot;), 
+##     libs_only = FALSE, INSTALL_opts, quiet = FALSE, keep_outputs = FALSE, 
+##     ...) 
+## NULL
+</code></pre>
+
+<pre><code class="r">install.packages(&quot;ctv&quot;, repo = &quot;http://cran.csie.ntu.edu.tw&quot;)
+</code></pre>
+
+<ul>
+<li><code>pkg</code> : <code>&quot;ctv&quot;</code></li>
+<li><code>repos</code> : <code>&quot;http://cran.csie.ntu.edu.tw&quot;</code></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-57" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>函數的參數</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code>## function (pkgs, lib, repos = getOption(&quot;repos&quot;), contriburl = contrib.url(repos, 
+##     type), method, available = NULL, destdir = NULL, dependencies = NA, 
+##     type = getOption(&quot;pkgType&quot;), configure.args = getOption(&quot;configure.args&quot;), 
+##     configure.vars = getOption(&quot;configure.vars&quot;), clean = FALSE, 
+##     Ncpus = getOption(&quot;Ncpus&quot;, 1L), verbose = getOption(&quot;verbose&quot;), 
+##     libs_only = FALSE, INSTALL_opts, quiet = FALSE, keep_outputs = FALSE, 
+##     ...) 
+## NULL
+</code></pre>
+
+<pre><code class="r">install.packages(&quot;ctv&quot;, &quot;http://cran.csie.ntu.edu.tw&quot;, lib = &quot;/home/wush/Project/2017-DS-Programming/.lib&quot;)
+</code></pre>
+
+<ul>
+<li><code>pkg</code> : <code>&quot;ctv&quot;</code></li>
+<li><code>lib</code> : <code>&quot;/home/wush/Project/2017-DS-Programming/.lib&quot;</code></li>
+<li><code>repos</code> : <code>&quot;http://cran.csie.ntu.edu.tw&quot;</code></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-58" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>函數的參數: 預設值</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code>## function (pkgs, lib, repos = getOption(&quot;repos&quot;), contriburl = contrib.url(repos, 
+##     type), method, available = NULL, destdir = NULL, dependencies = NA, 
+##     type = getOption(&quot;pkgType&quot;), configure.args = getOption(&quot;configure.args&quot;), 
+##     configure.vars = getOption(&quot;configure.vars&quot;), clean = FALSE, 
+##     Ncpus = getOption(&quot;Ncpus&quot;, 1L), verbose = getOption(&quot;verbose&quot;), 
+##     libs_only = FALSE, INSTALL_opts, quiet = FALSE, keep_outputs = FALSE, 
+##     ...) 
+## NULL
+</code></pre>
+
+<pre><code class="r">install.packages(&quot;ctv&quot;)
+</code></pre>
+
+<ul>
+<li><code>repos</code> : <code>getOption(&quot;repos&quot;)</code></li>
+<li><code>destdir</code> : <code>NULL</code></li>
+<li class='..</li>'></ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-59" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>參數的規則</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>順序、名字
+
+<ul>
+<li>有給名字，則「部份比對名字」(Best Practice: 請打全名)</li>
+<li>沒給名字，則照順序，但是會跳過<strong>已經給名字的參數</strong></li>
+<li>剩下的參數則考慮預設值</li>
+</ul></li>
+<li>建議: 超過三個以上，都用使用「全名」來指定參數</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-60" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>練習</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r">args(strsplit)
+</code></pre>
+
+<pre><code>## function (x, split, fixed = FALSE, perl = FALSE, useBytes = FALSE) 
+## NULL
+</code></pre>
+
+<pre><code class="r">strsplit(&quot;abcdef&quot;, TRUE, split = &quot;cd&quot;)
+</code></pre>
+
+<pre><code>## [[1]]
+## [1] &quot;ab&quot; &quot;ef&quot;
+</code></pre>
+
+<ul>
+<li>請問參數<code>x</code>、<code>split</code>、<code>fixed</code>、<code>perl</code>與<code>useBytes</code>的值各為何?</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='大綱'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='事前注意事項'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='安裝R'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='影片示範: Windows'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='影片示範: OS X'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Linux Ubuntu'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='安裝Rstudio'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='示範影片搜尋'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='RStudio 界面介紹'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='NA'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='程式碼編輯區(1)'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='語法錯誤提示'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='自動完成與說明文件'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='對稱的括號提示'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Console(2)'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='環境資訊(3)'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='檔案系統、說明文件與圖片(4)'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='檔案系統、說明文件與圖片(4)'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='檔案系統、說明文件與圖片(4)'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='上手R 程式撰寫'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='學習目標'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='<code>expression</code>'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='<code>expression</code>'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='<code>expression</code>'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='<code>expression</code>'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='<code>expression</code>'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='練習: 請同學估計以下資料所需要的記憶體'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='練習: 請同學估計以下資料所需要的記憶體'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='練習: 請同學查詢自己的電腦有多少記憶體'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='變數'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='透過變數，我們可以描述「邏輯」'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='透過變數，我們可以描述「邏輯」'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='變數'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='練習'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='可能的答案'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='輸入與輸出的關係'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='可能的答案'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='使用R 會用到大量的函數'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='NA'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='使用R 會用到大量的函數'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='了解R 中的函數'>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='了解R 中的函數'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='了解R 中的函數'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='了解R 中的函數'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='套件'>
+         45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='套件'>
+         46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='安裝套件'>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='載入套件'>
+         48
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title='使用套件的函數'>
+         49
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='函數的參數'>
+         50
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title='函數的參數'>
+         51
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=52 title='函數的參數'>
+         52
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=53 title='函數的參數'>
+         53
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=54 title='函數的參數'>
+         54
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=55 title='函數的參數'>
+         55
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=56 title='函數的參數'>
+         56
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=57 title='函數的參數'>
+         57
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=58 title='函數的參數: 預設值'>
+         58
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=59 title='參數的規則'>
+         59
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=60 title='練習'>
+         60
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
