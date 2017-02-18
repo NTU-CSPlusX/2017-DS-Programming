@@ -26,9 +26,9 @@ library(Lahman)
 library(sjPlot)
 
 opts_chunk$set(echo = FALSE, cache=FALSE, comment="", 
-               cache.path = "cache-Introduction-of-DSR/", 
+               cache.path = "cache-Introduction-of-R/", 
                dev.args=list(bg="transparent"),
-               fig.path = "./assets/fig/introduction-of-dsr")
+               fig.path = "./assets/fig/introduction-of-r-")
 fig <- function(path, size = 100) {
   sprintf("<img src='assets/img/%s' style='max-width: %d%%;max-height: %d%%'></img>", 
           path, size, size)
