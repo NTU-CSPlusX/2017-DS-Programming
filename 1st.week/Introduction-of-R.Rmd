@@ -929,7 +929,10 @@ P.S. 老師已備份這篇
 
 ## R 是活生生的在變化的工具
 
-```{r number-of-R-pkgs2, dependson="number-of-R-pkgs"}
+<br/>
+<br/>
+
+```{r number-of-R-pkgs2, dependson="number-of-R-pkgs", warning=FALSE}
 pkgs2 <- pkgs
 pkgs2$first_release <- as.Date(pkgs2$first_release)
 pkgs2$color <- 1
@@ -958,24 +961,31 @@ ggplot(pkgs2, aes(as.Date(first_release), index)) +
 Peter Dalgaard pd.mes at cbs.dk
 Sun Feb 5 15:14:41 CET 2017
 
-    Previous message: [Rd] Lack of 'seq_len' in 'head' in 'stopifnot'
-    Next message: [Rd] buggy ANSI escape sequences in R prompt
-    Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
-
+...
 The wrap-up release of the R-3.3.x series will be on Monday, March 6th. 
 
 Package maintainers should check that their packages still work with this release. In particular, recommended-package maintainers should be extra careful since we do not want unexpected turbulence at this point.
 
 On behalf of the R Core Team
 Peter Dalgaard
-
--- 
-Peter Dalgaard, Professor,
-Center for Statistics, Copenhagen Business School
-Solbjerg Plads 3, 2000 Frederiksberg, Denmark
-Phone: (+45)38153501
-Office: A 4.23
-Email: pd.mes at cbs.dk  Priv: PDalgd at gmail.com
+...
 ```
 
-<https://stat.ethz.ch/pipermail/r-devel/2017-February/073705.html>
+出處: <https://stat.ethz.ch/pipermail/r-devel/2017-February/073705.html>
+
+--- &vcenter .largecontent
+
+## 結論
+
+- 介紹R 的發展史
+- R 身為工具的定位，以及定位的演化
+    - 統計分析工具 ==> 資料科學的解決方案
+- 社群對R 造成的影響
+- 現代的R 是一個資料科學的解決方案
+    - 推薦學R 的主因
+- R 仍然在不停的演進
+
+--- &vcenter .largecontent
+
+## Q&A
+
