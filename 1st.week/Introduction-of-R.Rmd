@@ -59,6 +59,7 @@ Sys.setlocale(category = "LC_TIME", locale = "en_US.UTF-8")
 - R 的簡介
 - R 的傳統用途
 - R 的社群與近代R 的演變
+- 如何學習R 語言
 
 --- .dark .segue
 
@@ -419,7 +420,7 @@ chart.Correlation(iris[-5], bg=iris$Species, pch=21)
 ## 範例 - 經濟學人風格的視覺化
 
 <center>
-```{r ggthemes}
+```{r ggthemes, warning=FALSE}
 library(ggthemes)
 dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
 q <- (qplot(carat, price, data=dsamp, colour=clarity)
@@ -491,7 +492,7 @@ q + theme_economist() + scale_colour_economist()
 
 --- &vcenter .largecontent
 
-## 常見的Open Data 分析流程
+## 常見的分析流程
 
 ```{r, echo = FALSE, results = "figure"}
 par(mar = c(1, 1, 1, 1), bg = "transparent")
@@ -507,7 +508,7 @@ for (i in 1:nr)
  arrpos[i, ] <- straightarrow (to = elpos[fromto[i, 2], ],
                               from = elpos[fromto[i, 1], ],
                               lwd = 2, arr.pos = 0.6, arr.length = 0.5)
-textellipse(elpos[1,], 0.3, 0.1,       lab = "用R抓取網頁資訊，儲存HTML檔案至硬碟",           box.col = "orange",
+textellipse(elpos[1,], 0.4, 0.1,       lab = "用R抓取網頁資訊，儲存HTML檔案至硬碟",           box.col = "orange",
             shadow.col = "darkgreen", shadow.size = 0.005, cex = 1.5)
 textrect   (elpos[2,], 0.3, 0.05,lab = "使用R讀取HTML並轉成表格資料",     box.col = "orange",
             shadow.col = "darkblue", shadow.size = 0.005, cex = 1.5)
@@ -984,6 +985,112 @@ Peter Dalgaard
 - 現代的R 是一個資料科學的解決方案
     - 推薦學R 的主因
 - R 仍然在不停的演進
+
+--- .dark .segue
+
+## 如何學習R 語言
+
+--- &vcenter .largecontent
+
+## 至聖先師 孔子如是說
+
+`r fig("200px-Confucius_Tang_Dynasty.jpg")`
+
+- 學R 不思則罔
+- 思R 不學則怠
+
+*** =pnotes
+
+圖片出處: <https://zh.wikipedia.org/wiki/%E5%AD%94%E5%AD%90>
+
+--- &vcenter .largecontent
+
+## 上手R 、自學R 
+
+- 從0 --> 1
+- 從1 --> 10
+- 從10 --> 100
+
+--- .dark .segue
+
+## R 的自學等級
+
+--- &fullimg `r bg("")`
+
+<center>`r fig("copy-paste.jpg")`</center>
+
+
+*** =pnotes
+
+出處: [I am Programmer, I have no life.](https://www.facebook.com/ProgrammersCreateLife/photos/a.241809332534619.55240.241806149201604/1263901770325365/?type=3&theater)
+
+--- &fullimg `r bg("copy-paste-modify.gif")`
+
+*** =pnotes
+
+- 出處: [Copy and paste programming](https://en.wikipedia.org/wiki/Copy_and_paste_programming)
+- By Bokanko - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=29682303
+
+--- &fullimg `r bg("books.jpg")`
+
+*** =pnotes
+
+- 出處: [Book](https://en.wikipedia.org/wiki/Book)
+- By Johannes Jansson/norden.org, CC BY 2.5 dk, https://commons.wikimedia.org/w/index.php?curid=25009679
+
+--- &fullimg `r bg("teacher.jpg")`
+
+*** =pnotes
+
+- 出處: [Teacher](https://en.wikipedia.org/wiki/Teacher)
+- By Bundesarchiv, Bild 183-13055-0008 / CC-BY-SA 3.0, CC BY-SA 3.0 de, https://commons.wikimedia.org/w/index.php?curid=5339854
+
+--- &fullimg `r bg("Selection_046.png")`
+
+*** =pnotes
+
+出處: [R-bloggers](https://www.r-bloggers.com/)
+
+
+--- &fullimg `r bg("CodeCmmt002.svg")`
+
+*** =pnotes
+
+- <https://en.wikipedia.org/wiki/Source_code>
+- By The original uploader was Dreftymac at English Wikipedia - Transferred from en.wikipedia to Commons.28041964, CC BY 2.5, https://commons.wikimedia.org/w/index.php?curid=2412235
+
+--- &vcenter .largecontent
+
+## 這學期的目標
+
+- 具備用R 處理資料的能力
+- 具備整合不同來源資料的能力
+- 具備資料視覺化的能力
+- 具備自學R 的能力
+
+--- &twocol
+
+## [R 語言翻轉教室](http://datascienceandr.org)
+
+*** =left
+
+<center>`r fig("dsr-qr.svg")`</center>
+
+*** =right
+
+`r fig("Selection_047.png")`
+
+--- &twocol
+
+## [線上聊天室](https://gitter.im/wush978/DataScienceAndR)
+
+*** =left
+
+<center>`r fig("gitter.svg")`</center>
+
+*** =right
+
+`r fig("Selection_048.png")`
 
 --- &vcenter .largecontent
 
