@@ -276,6 +276,31 @@ x 代入 2 則 y 為 3
 
 --- &vcenter .largecontent
 
+## 字串
+
+- 前後利用`"`所夾住的文字，在程式碼中會視為字串(character)
+
+```{r}
+1 + 1
+"1 + 1"
+```
+
+- **字串不是程式碼、字串不是變數**
+- 字串就是文字
+- 字串與變數的不同：R 處理變數的名字時，會先找到該名字所對應的值，用值把名字替換掉之後再執行
+
+--- &vcenter .largecontent
+
+## 字串 v.s. 變數的名字
+
+```{r, fig.height = 7, fig.height = 2}
+a <- 1
+plot(cars, main = "a")
+plot(cars, main = a)
+```
+
+--- &vcenter .largecontent
+
 ## 透過變數，我們可以描述「邏輯」
 
 - 儲存2300萬人的身份證字號與性別需要多大的記憶體(MB)?
@@ -541,10 +566,6 @@ args(install.packages)
 ## 函數的參數
 
 - `install.packages` 負責安裝套件
-
-```{r}
-install.packages
-```
 
 - 電腦需要知道動作的細節才能運作:
     - 要安裝什麼套件?
