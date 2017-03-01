@@ -1,17 +1,95 @@
 - Class: meta
   Course: 2017-NTUCSX
-  Lesson: 2nd-week
+  Lesson: 2nd-week-hw
   Author: Wush Wu
   Type: Standard
   Organization: datascienceandr
   Version: 1.0
-
 - Class: text
   Output: |
-    這個單元的目的是讓同學學習如何繳交作業
-
+    這個作業我準備了四個變數向量給同學練習
+- Class: cmd_question
+  Output: |
+    第一個是變數`titanic.class`，請同學在螢幕上輸入變數的名稱看看資料
+  CorrectAnswer: titanic.class
+  AnswerTests: omnitest('titanic.class')
+  Hint: titanic.class
+- Class: mult_question
+  Output: |
+    請同學依據console上的顯示，判斷`titanic.class`的型態是以下何者？
+  AnswerChoices: character;logical;numeric
+  CorrectAnswer: character
+  AnswerTests: omnitest(correctVal = "character")
+- Class: cmd_question
+  Output: |
+    第一個是變數`titanic.age`，請同學在螢幕上輸入變數的名稱看看資料
+  CorrectAnswer: titanic.age
+  AnswerTests: omnitest('titanic.age')
+  Hint: titanic.age
+- Class: cmd_question
+  Output: |
+    第一個是變數`titanic.sex`，請同學在螢幕上輸入變數的名稱看看資料
+  CorrectAnswer: titanic.sex
+  AnswerTests: omnitest('titanic.sex')
+  Hint: titanic.sex
+- Class: cmd_question
+  Output: |
+    第一個是變數`titanic.survived`，請同學在螢幕上輸入變數的名稱看看資料
+  CorrectAnswer: titanic.survived
+  AnswerTests: omnitest('titanic.survived')
+  Hint: titanic.survived
+- Class: text
+  Output: |
+    這四個變數分別代表2201名在鐵達尼號上的人員的職等(class)、年齡(age)、性別(sex)
+    與最後有無存活(survived)
 - Class: script
   Output: |
-    請同學修正程式碼，讓它可以順利運行
-  Script: memory.R
-  AnswerTests: memory_test()
+    請同學完成這份作業
+  Script: titanic.R
+  AnswerTests: titanic_test()
+- Class: text
+  Output: |
+    為了了解教學的狀況，麻煩同學在更新進度之前做一份簡單的問卷調查
+- Class: mult_question
+  Output: |
+    我認為「進擊的R 語言」的課程內容對我有幫助
+  AnswerChoices: 非常同意;同意;無意見;不同意;非常不同意
+  CorrectAnswer: 無意見
+  AnswerTests: yes
+- Class: mult_question
+  Output: |
+    我認為「上手R 語言」的課程內容對我有幫助
+  AnswerChoices: 非常同意;同意;無意見;不同意;非常不同意
+  CorrectAnswer: 無意見
+  AnswerTests: yes
+- Class: mult_question
+  Output: |
+    我認為「自學R 語言」的課程內容對我有幫助
+  AnswerChoices: 非常同意;同意;無意見;不同意;非常不同意
+  CorrectAnswer: 無意見
+  AnswerTests: yes
+- Class: mult_question
+  Output: |
+    我認為「R 語言的資料型態」的課程內容對我有幫助
+  AnswerChoices: 非常同意;同意;無意見;不同意;非常不同意
+  CorrectAnswer: 無意見
+  AnswerTests: yes
+- Class: mult_question
+  Output: |
+    比起R 在分析資料上的功能，我希望老師多介紹R 在程式語言上的功能
+  AnswerChoices: 非常同意;同意;無意見;不同意;非常不同意
+  CorrectAnswer: 無意見
+  AnswerTests: yes
+- Class: mult_question
+  Output: |
+    我喜歡運用swirl這種互動的方式做學習
+  AnswerChoices: 非常同意;同意;無意見;不同意;非常不同意
+  CorrectAnswer: 無意見
+  AnswerTests: yes
+- Class: mult_question
+  Output: |
+    我認為swirl可以取代實體課程
+  AnswerChoices: 非常同意;同意;無意見;不同意;非常不同意
+  CorrectAnswer: 無意見
+  AnswerTests: yes
+
