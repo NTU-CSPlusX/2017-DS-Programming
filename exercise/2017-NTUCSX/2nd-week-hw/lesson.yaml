@@ -1,0 +1,17 @@
+- Class: meta
+  Course: 2017-NTUCSX
+  Lesson: 2nd-week
+  Author: Wush Wu
+  Type: Standard
+  Organization: datascienceandr
+  Version: 1.0
+
+- Class: text
+  Output: |
+    這個單元的目的是讓同學學習如何繳交作業
+
+- Class: script
+  Output: |
+    請同學修正程式碼，讓它可以順利運行
+  Script: memory.R
+  AnswerTests: memory_test()
