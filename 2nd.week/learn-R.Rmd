@@ -715,5 +715,6 @@ Your status has beed updated to tracking server
 
 ```r
 library(swirl)
-install_course_url("http://13.85.30.195/exercise/2017-NTUCSX-2nd-week.zip")
+install_course_url("http://13.85.30.195/R/exercise/2017-NTUCSX.zip")
+# 分流: install_course_url("https://wush978.github.io/R/exercise/2017-NTUCSX.zip")
 ```

@@ -277,10 +277,6 @@
   <h2>查詢函數</h2>
 </hgroup>
 <article class = 'flexbox vcenter'>
-<pre><code class="r">?mean
-help(mean)
-help(&quot;mean&quot;)
-</code></pre>
 
 </article>
 <!-- Presenter Notes -->
@@ -404,14 +400,11 @@ na.rm     a logical value indicating whether NA values should be stripped before
 <li>說明每個參數的型態</li>
 </ul>
 
-<pre><code class="r">mean(&quot;a&quot;)
+<pre><code>Warning in mean.default(&quot;a&quot;): argument is not numeric or logical: returning
+NA
 </code></pre>
 
-<pre><code>## Warning in mean.default(&quot;a&quot;): argument is not numeric or logical: returning
-## NA
-</code></pre>
-
-<pre><code>## [1] NA
+<pre><code>[1] NA
 </code></pre>
 
 </article>
@@ -434,16 +427,13 @@ na.rm     a logical value indicating whether NA values should be stripped before
   <h2>Examples</h2>
 </hgroup>
 <article class = 'flexbox vcenter'>
-<pre><code class="r">example(mean)
-</code></pre>
+<pre><code>
+mean&gt; x &lt;- c(0:10, 50)
 
-<pre><code>## 
-## mean&gt; x &lt;- c(0:10, 50)
-## 
-## mean&gt; xm &lt;- mean(x)
-## 
-## mean&gt; c(xm, mean(x, trim = 0.10))
-## [1] 8.75 5.50
+mean&gt; xm &lt;- mean(x)
+
+mean&gt; c(xm, mean(x, trim = 0.10))
+[1] 8.75 5.50
 </code></pre>
 
 </article>
@@ -467,9 +457,6 @@ na.rm     a logical value indicating whether NA values should be stripped before
   <h2>學習套件的用法: vignettes</h2>
 </hgroup>
 <article class = 'flexbox vcenter'>
-<pre><code class="r">vignette(package = &quot;knitr&quot;)
-vignette(&quot;knitr-markdown&quot;, package = &quot;knitr&quot;)
-</code></pre>
 
 </article>
 <!-- Presenter Notes -->
@@ -833,8 +820,8 @@ swirl()
 <ul>
 <li>例如: <code>ntud01921016</code></li>
 </ul></li>
-<li>密碼請登入計中信箱(&lt;學號&gt;@ntu.edu.tw)後，尋找來自<code>service@datascienceandr.org</code>的信件</li>
-<li>未來作業將以這個帳號為主</li>
+<li>密碼請用學號後三碼</li>
+<li>請以這個帳號完成作業</li>
 </ul>
 
 </article>
@@ -952,7 +939,8 @@ Selection: 1
 </hgroup>
 <article class = 'flexbox vcenter'>
 <pre><code class="r">library(swirl)
-install_course_url(&quot;http://13.85.30.195/exercise/2017-NTUCSX-2nd-week.zip&quot;)
+install_course_url(&quot;http://13.85.30.195/R/exercise/2017-NTUCSX.zip&quot;)
+# 分流: install_course_url(&quot;https://wush978.github.io/R/exercise/2017-NTUCSX.zip&quot;)
 </code></pre>
 
 </article>
