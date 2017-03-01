@@ -615,8 +615,8 @@ swirl()
 
 - 這周確認選課名單後，請用ntu + 學號登入
     - 例如: `ntud01921016`
-- 密碼請登入計中信箱(<學號>@ntu.edu.tw)後，尋找來自`service@datascienceandr.org`的信件
-- 未來作業將以這個帳號為主
+- 密碼請用學號後三碼
+- 請以這個帳號完成作業
 
 --- &vcenter .largecontent
 
