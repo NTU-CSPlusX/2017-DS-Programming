@@ -1,0 +1,17 @@
+- Class: meta
+  Course: 2017-NTUCSX
+  Lesson: 3rd-week
+  Author: Wush Wu
+  Type: Standard
+  Organization: datascienceandr
+  Version: 1.0
+
+- Class: text
+  Output: |
+    這是第三周的作業
+
+- Class: script
+  Output: |
+    請同學修正程式碼，讓它可以順利運行
+  Script: iris.R
+  AnswerTests: iris_test()
