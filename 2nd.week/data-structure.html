@@ -72,9 +72,9 @@
 <article class = 'flexbox vcenter'>
 <p><center></p>
 
-<!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
+<!-- html table generated in R 3.3.1 by xtable 1.8-2 package -->
 
-<!-- Thu Mar  2 01:47:55 2017 -->
+<!-- Thu Mar  9 11:17:33 2017 -->
 
 <table style = "font-size: 20px">
 <tr> <th>  </th> <th> 資料衡量尺度 </th> <th> 變數形態 </th> <th> 特性 </th>  </tr>
@@ -262,7 +262,10 @@
 
 </div>
 <div style='float:right;width:48%;' class='centered'>
-  <p><img src="./assets/fig/data-structure-character-figure-title-1.png" title="plot of chunk character-figure-title" alt="plot of chunk character-figure-title" class="fig100" /></p>
+  <pre><code class="r">plot(cars, main=&quot;\&quot;hello world\&quot;&quot;)
+</code></pre>
+
+<p><img src="assets/fig/character-figure-title-1.png" title="plot of chunk character-figure-title" alt="plot of chunk character-figure-title" class="fig100" /></p>
 
 </div>
   </article>
@@ -277,25 +280,38 @@
 <div style='float:left;width:48%;' class='centered'>
   <h3>字串的剪接：<code>paste</code></h3>
 
-<pre><code>[1] &quot;abc,bbb&quot;
+<pre><code class="r">x &lt;- &quot;abc&quot;;y &lt;- &quot;bbb&quot;
+paste(x, y, sep=&quot;,&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;abc,bbb&quot;
 </code></pre>
 
 <h3>字串的切割：<code>strsplit</code></h3>
 
-<pre><code>[[1]]
-[1] &quot;a&quot; &quot;c&quot;
+<pre><code class="r">strsplit(x, &quot;b&quot;)
+</code></pre>
+
+<pre><code>## [[1]]
+## [1] &quot;a&quot; &quot;c&quot;
 </code></pre>
 
 </div>
 <div style='float:right;width:48%;' class='centered'>
   <h3>字串的長度：<code>nchar</code></h3>
 
-<pre><code>[1] 3
+<pre><code class="r">nchar(x)
+</code></pre>
+
+<pre><code>## [1] 3
 </code></pre>
 
 <h3>截取子字串：<code>substring</code></h3>
 
-<pre><code>[1] &quot;ab&quot;
+<pre><code class="r">substring(x, 1, 2)
+</code></pre>
+
+<pre><code>## [1] &quot;ab&quot;
 </code></pre>
 
 </div>
@@ -313,10 +329,17 @@
 <li>產生自比較，或是使用<code>T</code>、<code>TRUE</code>、<code>F</code>或<code>FALSE</code>輸入</li>
 </ul>
 
-<pre><code>[1] TRUE
+<pre><code class="r">x &lt;- 1
+x &lt; 2
 </code></pre>
 
-<pre><code>[1] TRUE
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">x &lt;= 1
+</code></pre>
+
+<pre><code>## [1] TRUE
 </code></pre>
 
 </div>
@@ -325,7 +348,14 @@
 <li>常用來做流程控制</li>
 </ul>
 
-<pre><code>[1] &quot;This is TRUE&quot;
+<pre><code class="r">if (T) {
+  print(&quot;This is TRUE&quot;)
+} else {
+  print (&quot;This is FALSE&quot;)
+}
+</code></pre>
+
+<pre><code>## [1] &quot;This is TRUE&quot;
 </code></pre>
 
 </div>
@@ -341,19 +371,28 @@
 <div style='float:left;width:48%;' class='centered'>
   <h3>NOT</h3>
 
-<pre><code>[1] FALSE
+<pre><code class="r">!TRUE
+</code></pre>
+
+<pre><code>## [1] FALSE
 </code></pre>
 
 </div>
 <div style='float:right;width:48%;' class='centered'>
   <h3>AND</h3>
 
-<pre><code>[1] TRUE
+<pre><code class="r">T &amp; T
+</code></pre>
+
+<pre><code>## [1] TRUE
 </code></pre>
 
 <h3>OR</h3>
 
-<pre><code>[1] TRUE
+<pre><code class="r">T | F
+</code></pre>
+
+<pre><code>## [1] TRUE
 </code></pre>
 
 </div>
@@ -369,24 +408,36 @@
 <div style='float:left;width:48%;' class='centered'>
   <h3><code>+</code></h3>
 
-<pre><code>[1] 3
+<pre><code class="r">1 + 2
+</code></pre>
+
+<pre><code>## [1] 3
 </code></pre>
 
 <h3><code>-</code></h3>
 
-<pre><code>[1] -1
+<pre><code class="r">1 - 2
+</code></pre>
+
+<pre><code>## [1] -1
 </code></pre>
 
 </div>
 <div style='float:right;width:48%;' class='centered'>
   <h3><code>*</code></h3>
 
-<pre><code>[1] 2
+<pre><code class="r">1 * 2
+</code></pre>
+
+<pre><code>## [1] 2
 </code></pre>
 
 <h3><code>/</code></h3>
 
-<pre><code>[1] 0.5
+<pre><code class="r">1L / 2L
+</code></pre>
+
+<pre><code>## [1] 0.5
 </code></pre>
 
 </div>
@@ -400,15 +451,24 @@
 <article class = 'flexbox vcenter'>
 <h3>所有Atomic Type都有長度</h3>
 
-<pre><code>[1] 1
+<pre><code class="r">length(0L)
+</code></pre>
+
+<pre><code>## [1] 1
 </code></pre>
 
 <h3>可以利用<code>:</code>或<code>c()</code>快速建立Vector</h3>
 
-<pre><code>[1] 1 2 3
+<pre><code class="r">1:3
 </code></pre>
 
-<pre><code>[1] 1 2 3
+<pre><code>## [1] 1 2 3
+</code></pre>
+
+<pre><code class="r">c(1L,2L,3L)
+</code></pre>
+
+<pre><code>## [1] 1 2 3
 </code></pre>
 
 </article>
@@ -421,14 +481,19 @@
 <article class = 'flexbox vcenter'>
 <h2>幾乎內建的Operations、Functions都是Vectorize</h2>
 
-<pre><code>[1] 3 5 7
+<pre><code class="r">1:3 + 2:4
 </code></pre>
 
-<pre><code>Warning in 1:2 + 1:3: longer object length is not a multiple of shorter
-object length
+<pre><code>## [1] 3 5 7
 </code></pre>
 
-<pre><code>[1] 2 4 4
+<pre><code class="r">1:2 + 1:3
+</code></pre>
+
+<pre><code>## Warning in 1:2 + 1:3: 較長的物件長度並非較短物件長度的倍數
+</code></pre>
+
+<pre><code>## [1] 2 4 4
 </code></pre>
 
 </article>
@@ -443,11 +508,13 @@ object length
 <div style='float:left;width:48%;' class='centered'>
   <h3>長度不同會自動延伸</h3>
 
-<pre><code>Warning in 1:2 + 1:3: longer object length is not a multiple of shorter
-object length
+<pre><code class="r">1:2 + 1:3
 </code></pre>
 
-<pre><code>[1] 2 4 4
+<pre><code>## Warning in 1:2 + 1:3: 較長的物件長度並非較短物件長度的倍數
+</code></pre>
+
+<pre><code>## [1] 2 4 4
 </code></pre>
 
 <p>1 2 1 <font color='red'>2</font><br/>
@@ -469,14 +536,14 @@ f2 &lt;- function() {
 }
 </code></pre>
 
-<!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
+<!-- html table generated in R 3.3.1 by xtable 1.8-2 package -->
 
-<!-- Thu Mar  2 01:47:55 2017 -->
+<!-- Thu Mar  9 11:17:34 2017 -->
 
 <table border=1>
 <tr> <th>  </th> <th> expr </th> <th> median(nano seconds) </th>  </tr>
-  <tr> <td align="right"> 1 </td> <td> f1() </td> <td align="right"> 4145.50 </td> </tr>
-  <tr> <td align="right"> 2 </td> <td> f2() </td> <td align="right"> 699661.50 </td> </tr>
+  <tr> <td align="right"> 1 </td> <td> f1() </td> <td align="right"> 3434.50 </td> </tr>
+  <tr> <td align="right"> 2 </td> <td> f2() </td> <td align="right"> 660192.00 </td> </tr>
    </table>
 
 </div>
@@ -492,25 +559,43 @@ f2 &lt;- function() {
 <div style='float:left;width:48%;' class='centered'>
   <h3>Character &gt; Numeric &gt; Integer &gt; Logical</h3>
 
-<pre><code>[1] &quot;character&quot;
+<pre><code class="r">x &lt;- c(1L, 2.0, &quot;3&quot;)
+class(x)
 </code></pre>
 
-<pre><code>[1] &quot;1&quot; &quot;2&quot; &quot;3&quot;
+<pre><code>## [1] &quot;character&quot;
+</code></pre>
+
+<pre><code class="r">x
+</code></pre>
+
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;
 </code></pre>
 
 </div>
 <div style='float:right;width:48%;' class='centered'>
   <h3>改一個，全部就都變了</h3>
 
-<pre><code>[1] &quot;matrix&quot;
+<pre><code class="r">x &lt;- matrix(1:4, 2, 2)
+class(x)
 </code></pre>
 
-<pre><code>[1] 2
+<pre><code>## [1] &quot;matrix&quot;
 </code></pre>
 
-<pre><code>     [,1] [,2]
-[1,] &quot;1&quot;  &quot;3&quot; 
-[2,] &quot;2&quot;  &quot;4&quot; 
+<pre><code class="r">x[2]
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+<pre><code class="r">x[2] &lt;- as.character(x[2])
+x
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,] &quot;1&quot;  &quot;3&quot; 
+## [2,] &quot;2&quot;  &quot;4&quot;
 </code></pre>
 
 </div>
@@ -519,9 +604,26 @@ f2 &lt;- function() {
 </slide>
 <slide class="largecontent" id="slide-21" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
 <hgroup>
-  <h2>R 會在console告訴我們</h2>
+  <h2>R 會在console告訴我們型態</h2>
 </hgroup>
 <article class = 'flexbox vcenter'>
+<pre><code class="r">1:2
+</code></pre>
+
+<pre><code>## [1] 1 2
+</code></pre>
+
+<pre><code class="r">paste(1:2)
+</code></pre>
+
+<pre><code>## [1] &quot;1&quot; &quot;2&quot;
+</code></pre>
+
+<pre><code class="r">c(TRUE, FALSE)
+</code></pre>
+
+<pre><code>## [1]  TRUE FALSE
+</code></pre>
 
 </article>
 <!-- Presenter Notes -->
@@ -553,12 +655,19 @@ f2 &lt;- function() {
   <h2>範例: <code>summary</code></h2>
 </hgroup>
 <article class = 'flexbox vcenter'>
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   1.00    3.25    5.50    5.50    7.75   10.00 
+<pre><code class="r">?summary
+summary(1:10)
 </code></pre>
 
-<pre><code>   Length     Class      Mode 
-       10 character character 
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    3.25    5.50    5.50    7.75   10.00
+</code></pre>
+
+<pre><code class="r">summary(paste(1:10))
+</code></pre>
+
+<pre><code>##    Length     Class      Mode 
+##        10 character character
 </code></pre>
 
 </article>
@@ -587,12 +696,18 @@ f2 &lt;- function() {
   <h2>型態很重要</h2>
 </hgroup>
 <article class = 'flexbox vcenter'>
-<pre><code>[1] &quot;numeric&quot;
-[1] &quot;integer&quot;
-[1] &quot;double&quot;
-[1] &quot;integer&quot;
-[1] &quot;numeric&quot;
-[1] &quot;numeric&quot;
+<pre><code class="r">class(1)
+## [1] &quot;numeric&quot;
+class(1L)
+## [1] &quot;integer&quot;
+typeof(1)
+## [1] &quot;double&quot;
+typeof(1L)
+## [1] &quot;integer&quot;
+mode(1)
+## [1] &quot;numeric&quot;
+mode(1L)
+## [1] &quot;numeric&quot;
 </code></pre>
 
 </article>
@@ -638,22 +753,30 @@ f2 &lt;- function() {
     <h2>自向量中選取資料  <code>[</code></h2>
   </hgroup>
   <article data-timings="">
-    <pre><code> [1] 11 12 13 14 15 16 17 18 19 20
+    <pre><code class="r">x &lt;- 11:20
+x
+</code></pre>
+
+<pre><code>##  [1] 11 12 13 14 15 16 17 18 19 20
 </code></pre>
 
 <div style='float:left;width:48%;' class='centered'>
   <h3><code>[</code> + logical</h3>
 
-<pre><code> [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[1] 11 12
+<pre><code class="r">x &lt; 13
+##  [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+x[x &lt; 13]
+## [1] 11 12
 </code></pre>
 
 </div>
 <div style='float:right;width:48%;' class='centered'>
   <h3><code>[</code> + integer/numeric</h3>
 
-<pre><code>[1] 11 12
-[1] 11 12
+<pre><code class="r">x[1:2]
+## [1] 11 12
+head(x, 2)
+## [1] 11 12
 </code></pre>
 
 </div>
@@ -665,16 +788,26 @@ f2 &lt;- function() {
     <h2>自向量中選取資料  <code>[</code></h2>
   </hgroup>
   <article data-timings="">
-    <pre><code> a  b  c  d  e  f  g  h  i  j 
-11 12 13 14 15 16 17 18 19 20 
+    <pre><code class="r">names(x) &lt;- letters[1:10]
+x
 </code></pre>
 
-<pre><code> d 
-14 
+<pre><code>##  a  b  c  d  e  f  g  h  i  j 
+## 11 12 13 14 15 16 17 18 19 20
 </code></pre>
 
-<pre><code> a  b 
-11 12 
+<pre><code class="r">x[&quot;d&quot;]
+</code></pre>
+
+<pre><code>##  d 
+## 14
+</code></pre>
+
+<pre><code class="r">x[c(&quot;a&quot;, &quot;b&quot;)]
+</code></pre>
+
+<pre><code>##  a  b 
+## 11 12
 </code></pre>
 
 <div style='float:left;width:48%;' class='centered'>
@@ -695,8 +828,12 @@ f2 &lt;- function() {
 <li>比較有名字與沒有名字的顯示結果後，嘗試回答以下問題:</li>
 </ul>
 
-<pre><code> John   Tom Peter 
-  198   166   170 
+<pre><code class="r">height &lt;- c(&quot;John&quot; = 198, &quot;Tom&quot; = 166, &quot;Peter&quot; = 170)
+height
+</code></pre>
+
+<pre><code>##  John   Tom Peter 
+##   198   166   170
 </code></pre>
 
 <ul>
@@ -732,8 +869,14 @@ f2 &lt;- function() {
 </hgroup>
 <article class = 'flexbox vcenter'>
 <ul>
-<li><p>若經過三年後，他們三人的身高變成:</p></li>
-<li><p>請問他們身高各成長了百分之多少?\(\frac{x_{new} - x_{old}}{x_{old}}\)</p></li>
+<li>若經過三年後，他們三人的身高變成:</li>
+</ul>
+
+<pre><code class="r">height2 &lt;- c(&quot;Tom&quot; = 170, &quot;Peter&quot; = 185, &quot;John&quot; = 200)
+</code></pre>
+
+<ul>
+<li>請問他們身高各成長了百分之多少?\(\frac{x_{new} - x_{old}}{x_{old}}\)</li>
 </ul>
 
 </article>
@@ -887,7 +1030,7 @@ f2 &lt;- function() {
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='R 會在console告訴我們'>
+        data-slide=21 title='R 會在console告訴我們型態'>
          21
       </a>
     </li>
