@@ -47,15 +47,15 @@
   Hint: colnames(x) <- c("c", "d")
 - Class: cmd_question
   Output: |
-    請同學讀取`x`的"a"列"b"欄的資料
-  CorrectAnswer: x["a", "b"]
-  AnswerTests: omnitest('x["a", "b"]')
-  Hint: x["a", "b"]
+    請同學讀取`x`的"a"列"c"欄的資料
+  CorrectAnswer: x["a", "c"]
+  AnswerTests: omnitest('x["a", "c"]')
+  Hint: x["a", "c"]
 - Class: cmd_question
   Output: |
     請同學讀取出`x`中值超過2(`> 2`)的元素，並且寫入變數`a`
     這個變數應該是一個vector，而不是matrix
   CorrectAnswer: x[x > 2]
   AnswerTests: testVal("a", x[x > 2])
-  Hint: matrix只是有dimension屬性的vector, 所以請把`x`當vector做
+  Hint: matrix只是有dimension屬性的vector, 所以請把`x`當vector
 
