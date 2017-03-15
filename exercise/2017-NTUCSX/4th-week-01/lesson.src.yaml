@@ -1,0 +1,58 @@
+- Class: meta
+  Course: 2017-NTUCSX
+  Lesson: 4th-week-01
+  Author: Wush Wu
+  Type: Standard
+  Organization: datascienceandr
+  Version: 1.0
+
+- Class: text
+  Output: |
+    這部份我們讓同學練習一下matrix物件的CRUD
+
+- Class: cmd_question
+  Output: |
+    請同學建立一個2x2的matrix物件, 並且第一個column是`c(1, 3)`，第二個column
+    是`c(2, 4)`, 並且把結果放到變數`x`
+  CorrectAnswer: x <- matrix(c(1, 3, 2, 4), 2, 2)
+  AnswerTests: testVal("x", matrix(1:4, 2, 2, byrow = TRUE))
+
+- Class: cmd_question
+  Output: |
+    請同學讀取`x`的第1列(row)
+  CorrectAnswer: x[1,]
+  AnswerTests: omnitest("x[1,]")
+  
+- Class: cmd_question
+  Output: |
+    請同學讀取`x`的第2欄(column)
+  CorrectAnswer: x[,2]
+  AnswerTests: omnitest("x[,2]")
+  
+- Class: cmd_question
+  Output: |
+    請同學讀取`x`的第1列與第2欄的資料
+  CorrectAnswer: x[1,2]
+  AnswerTests: omnitest("x[1,2]")
+
+- Class: cmd_question
+  Output: |
+    先請同學輸入: `rownames(x) <- c("a", "b")`
+
+- Class: cmd_question
+  Output: |
+    再請同學輸入: `colnames(x) <- c("c", "d")`
+
+- Class: cmd_question
+  Output: |
+    請同學讀取`x`的"a"列"b"欄的資料
+  CorrectAnswer: x["a", "b"]
+  AnswerTests: omnitest('x["a", "b"]')
+
+- Class: cmd_question
+  Output: |
+    請同學讀取出`x`中值超過2(`> 2`)的元素，並且寫入變數`a`
+    這個變數應該是一個vector，而不是matrix
+  CorrectAnswer: x[x > 2]
+  AnswerTests: testVal("a", x[x > 2])
+  Hint: matrix只是有dimension屬性的vector, 所以請把`x`當vector做
