@@ -1,5 +1,5 @@
 ---
-title       : "資料型態的CRUD"
+title       : "R語言資料型態的CRUD"
 author      : "Wush Wu"
 job         : 國立台灣大學
 framework   : io2012-wush

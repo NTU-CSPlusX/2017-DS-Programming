@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R語言的IO簡介</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R語言的IO簡介">
+  <meta name="author" content="Wush Wu">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012-wush/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012-wush/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012-wush/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/custom.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="libraries/frameworks/io2012-wush/js/jquery-1.7.min.js"></script>
+  <!-- <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> -->
+  <script data-main="libraries/frameworks/io2012-wush/js/slides" 
+    src="libraries/frameworks/io2012-wush/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>R語言的IO簡介</h1>
+    <h2></h2>
+    <p>Wush Wu<br/>國立台灣大學</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="largecontent" id="slide-1" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>大綱</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ol>
+<li>什麼是IO?</li>
+<li>R 語言一般物件的IO</li>
+<li>CSV的IO</li>
+</ol>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-2" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>什麼是IO?</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>I: Input</li>
+<li>O: Output</li>
+<li>一般來說, IO泛指（但不限於）如何讓工具從硬碟中存取資料的技術</li>
+<li>具體來說, 01-RBasic-07與02-RDataEngineer-01~04 都在教IO的技術</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-3" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>IO技術的要點</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>會
+
+<ul>
+<li>會存、會取</li>
+</ul></li>
+<li>正確
+
+<ul>
+<li>存取後的資料與原本的資料一致</li>
+</ul></li>
+<li>快
+
+<ul>
+<li>含大量數據時怎麼在短時間存取</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="" id="slide-4" style="background:url(assets/img/R-dsr-process.png); background-size: 100% 100%;">
+  <article data-timings="" style="display: table;">
+    <div style="display: table-cell;vertical-align: bottom;">
+      
+    </div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-5" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>R物件的存取</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li><code>saveRDS</code>/<code>readRDS</code></li>
+</ul>
+
+<pre><code class="r">tmp.path &lt;- tempfile()
+saveRDS(iris, tmp.path)
+iris2 &lt;- readRDS(tmp.path)
+all.equal(iris, iris2)
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-6" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2><code>saveRDS</code></h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>將R物件以binary的方式存入硬碟
+
+<ol>
+<li>binary 格式, 整數用4 bytes, 而非文字。舉例來說: 98765432佔用4 bytes而非8 bytes</li>
+<li>內建壓縮功能, 用CPU換硬碟存取的時間</li>
+</ol></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-7" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2><code>readRDS</code></h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>從硬碟中將<code>saveRDS</code>的結果讀回R
+
+<ul>
+<li>同電腦的R 一般沒有問題</li>
+<li>不同電腦的R 可能會有問題(但是機會不大)</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="dark segue" id="slide-8" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+  <hgroup>
+    <h2>R 與 CSV格式</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-9" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>CSV、TSV或其他類似格式</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>CSV: Comma-Seperated Values</li>
+<li>以分隔符號來儲存明碼
+
+<ul>
+<li>為什麼要分隔符號?</li>
+</ul></li>
+</ul>
+
+<pre><code class="r">df &lt;- iris[c(1, 51, 101),]
+write.csv(df, file = (tmp.path &lt;- tempfile()))
+</code></pre>
+
+<pre><code class="csv">&quot;&quot;,&quot;Sepal.Length&quot;,&quot;Sepal.Width&quot;,&quot;Petal.Length&quot;,&quot;Petal.Width&quot;,&quot;Species&quot;
+&quot;1&quot;,5.1,3.5,1.4,0.2,&quot;setosa&quot;
+&quot;51&quot;,7,3.2,4.7,1.4,&quot;versicolor&quot;
+&quot;101&quot;,6.3,3.3,6,2.5,&quot;virginica&quot;
+</code></pre>
+
+<ul>
+<li>若沒有分隔符號，第一行變成: <code>15.13.51.40.2setosa</code></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-10" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>CSV、TSV或其他類似格式</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>R 的存取函數:
+
+<ul>
+<li>存: <code>write.csv</code>, <code>write.table</code></li>
+<li>取: <code>read.csv</code>, <code>read.table</code></li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-11" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>CSV 的正確性</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>結構化資料</li>
+<li>CSV沒有嚴謹的型態定義，只有經驗構成的判斷
+
+<ul>
+<li>有非數字的即為文字或factor</li>
+<li>都是數字的則為數字</li>
+<li><code>&quot;</code>可以協助判斷，但是不同工具的詮釋會不同</li>
+<li>excel --&gt; CSV --&gt; R 是簡單的讀取excel資料的方式</li>
+</ul></li>
+</ul>
+
+<pre><code class="csv">&quot;&quot;,&quot;Sepal.Length&quot;,&quot;Sepal.Width&quot;,&quot;Petal.Length&quot;,&quot;Petal.Width&quot;,&quot;Species&quot;
+&quot;1&quot;,5.1,3.5,1.4,0.2,&quot;setosa&quot;
+&quot;51&quot;,7,3.2,4.7,1.4,&quot;versicolor&quot;
+&quot;101&quot;,6.3,3.3,6,2.5,&quot;virginica&quot;
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-12" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>CSV 的正確性</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r">df &lt;- data.frame(a = as.character(1:3))
+write.csv(df, tmp.path &lt;- tempfile(), row.names = FALSE)
+cat(readLines(tmp.path), sep = &quot;\n&quot;)
+</code></pre>
+
+<pre><code>## &quot;a&quot;
+## &quot;1&quot;
+## &quot;2&quot;
+## &quot;3&quot;
+</code></pre>
+
+<pre><code class="r">df2 &lt;- read.csv(tmp.path)
+all.equal(df, df2)
+</code></pre>
+
+<pre><code>## [1] &quot;Component \&quot;a\&quot;: &#39;current&#39; is not a factor&quot;
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-13" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>CSV 的正確性</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>在讀取時透過<code>colClass</code>參數做校正</li>
+</ul>
+
+<pre><code class="r">df2 &lt;- read.csv(tmp.path, colClasses = &quot;factor&quot;)
+all.equal(df, df2)
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-14" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>CSV 格式的正確性</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>要非常小心才能確認存取的資料的型態正確性，建議使用colClasses比較保險</li>
+<li>與其他工具可能有不一致的行為</li>
+<li>文字資料不跨平台</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-15" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>電腦上的文字</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>絕對沒問題的符號ASCII
+
+<ul>
+<li>英數鍵盤上的符號, ex: a ~ z, A ~ Z, 0 ~ 9, </li>
+</ul></li>
+<li>其他的符號都有編碼問題</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-16" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>文字編碼</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>一個文字可能1~3 bytes
+
+<ul>
+<li>一個bytes 包含 8 bits, 所以數字的範圍是 0 ~ 255</li>
+<li>我們會用兩個16進位的符號來表示一個byte</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-17" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>文字編碼</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><br/></p>
+
+<pre><code class="r">showBits &lt;- function(r) stats::symnum(as.logical(rawToBits(r)))
+showBits(as.raw(0))
+</code></pre>
+
+<pre><code>## [1] . . . . . . . .
+</code></pre>
+
+<pre><code class="r">showBits(as.raw(1))
+</code></pre>
+
+<pre><code>## [1] | . . . . . . .
+</code></pre>
+
+<pre><code class="r">showBits(as.raw(2))
+</code></pre>
+
+<pre><code>## [1] . | . . . . . .
+</code></pre>
+
+<pre><code class="r">showBits(as.raw(255))
+</code></pre>
+
+<pre><code>## [1] | | | | | | | |
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-18" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>文字編碼</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p><br/></p>
+
+<pre><code class="r">showBits(as.raw(0x00))
+</code></pre>
+
+<pre><code>## [1] . . . . . . . .
+</code></pre>
+
+<pre><code class="r">showBits(as.raw(0x0a))
+</code></pre>
+
+<pre><code>## [1] . | . | . . . .
+</code></pre>
+
+<pre><code class="r">showBits(as.raw(0x12))
+</code></pre>
+
+<pre><code>## [1] . | . . | . . .
+</code></pre>
+
+<pre><code class="r">showBits(as.raw(0xff))
+</code></pre>
+
+<pre><code>## [1] | | | | | | | |
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-19" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>文字編碼</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r"># 不同的電腦，會有不同的值
+x &lt;- &quot;中&quot;
+charToRaw(x)
+</code></pre>
+
+<pre><code>## [1] e4 b8 ad
+</code></pre>
+
+<pre><code class="r">charToRaw(iconv(x, from = &quot;UTF-8&quot;, to = &quot;BIG5&quot;))
+</code></pre>
+
+<pre><code>## [1] a4 a4
+</code></pre>
+
+<pre><code class="r">charToRaw(iconv(x, from = &quot;UTF-8&quot;, to = &quot;UTF-16&quot;))
+</code></pre>
+
+<pre><code>## [1] ff fe 2d 4e
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-20" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>中文編碼的不一致</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>Windows: BIG5, Mac OSX / Linux : UTF-8</li>
+<li>政府單位多用BIG5, 但是偶爾也會冒出UTF-8</li>
+<li>產生中文亂碼，大部分的原因都是因為編碼</li>
+</ul>
+
+<pre><code class="r">iconv(x, from = &quot;UTF-8&quot;, to = &quot;BIG5&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;\xa4\xa4&quot;
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-21" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>中文編碼的解決方法</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>用raw vector讀取資料，避開編碼的處理</li>
+<li>使用<code>iconv</code>或<code>stringi::stri_encode</code>將編碼轉換成平台的中文編碼
+
+<ul>
+<li>Windows 上因為編碼與Open Source Community使用的UTF-8不同, 所以中文有許多出bug的風險</li>
+<li>遇到時，一種方式是對character vector做Encoding的註解</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-22" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>中文編碼的解決方法</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<pre><code class="r">(x &lt;- &quot;fa\xE7ile&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;fa\xe7ile&quot;
+</code></pre>
+
+<pre><code class="r"># 轉換編碼到UTF-8
+iconv(x, from = &quot;latin1&quot;, to = &quot;UTF-8&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;façile&quot;
+</code></pre>
+
+<pre><code class="r"># 註記編碼是latin1讓R能正確顯示
+Encoding(x) &lt;- &quot;latin1&quot;
+x
+</code></pre>
+
+<pre><code>## [1] &quot;façile&quot;
+</code></pre>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-23" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>練習</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>請完成01-RBasic-07</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="dark segue" id="slide-24" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+  <hgroup>
+    <h2>非結構化與半結構化的資料</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-25" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>資料不一定具備結構</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>非結構化的資料: 純文字</li>
+<li>半結構化的資料: XML、JSON</li>
+<li>結構化的資料: CSV</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-26" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>Open Data</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>讓政府的資料具備機器可讀
+
+<ul>
+<li>非結構 --&gt; 半結構</li>
+</ul></li>
+<li>網頁
+
+<ul>
+<li>半結構</li>
+</ul></li>
+<li>各種資料API
+
+<ul>
+<li>Facebook、Youbike...</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-27" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>處理非結構化的資料與半結構化的資料</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>一般性文字處理</li>
+<li>使用套件
+
+<ul>
+<li>小心中文，小心編碼</li>
+</ul></li>
+<li>歸納資訊, 表格化</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-28" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>存取一般文字</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>我們必須到純文字資料撰寫資訊的規則</li>
+</ul>
+
+<pre><code class="txt">日期: 2017-03-27
+地點: 台北火車站
+</code></pre>
+
+<ul>
+<li><code>cat</code>、<code>write</code>等函數可以輸出character vector</li>
+<li><code>readLines</code>函數可以讀取character vector
+
+<ul>
+<li><code>strsplit</code>, <code>substring</code>等函數可以處理純文字的資料</li>
+<li>Regular Expression 可以一般性的處理純文字資料</li>
+</ul></li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-29" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
+<hgroup>
+  <h2>作業</h2>
+</hgroup>
+<article class = 'flexbox vcenter'>
+<ul>
+<li>01-RDataEngineer-01</li>
+</ul>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='大綱'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='什麼是IO?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='IO技術的要點'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='NA'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='R物件的存取'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='<code>saveRDS</code>'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='<code>readRDS</code>'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='R 與 CSV格式'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='CSV、TSV或其他類似格式'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='CSV、TSV或其他類似格式'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='CSV 的正確性'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='CSV 的正確性'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='CSV 的正確性'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='CSV 格式的正確性'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='電腦上的文字'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='文字編碼'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='文字編碼'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='文字編碼'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='文字編碼'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='中文編碼的不一致'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='中文編碼的解決方法'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='中文編碼的解決方法'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='練習'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='非結構化與半結構化的資料'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='資料不一定具備結構'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Open Data'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='處理非結構化的資料與半結構化的資料'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='存取一般文字'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='作業'>
+         29
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
