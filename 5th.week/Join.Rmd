@@ -1,0 +1,58 @@
+---
+title: "資料整合"
+author: "Wush Wu"
+date: "March 23, 2017"
+output: 
+  ioslides_presentation:
+    widescreen: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 資料整合是資料科學的捷徑
+
+- 飛機起降資料v.s.天氣
+- 政府招標資料v.s.商業司的公司基本資料
+- GDP資料v.s.房貸餘額
+
+## 資料整合的方式
+
+1. 決定row的物理意義
+2. 將不同來源的資料依照該row的物理意義做整理
+3. 依照不同data.frame的row的物理意義，進行整合
+
+## 範例: 飛機起降資料v.s.天氣
+
+- 飛機起降資料
+    - row: 航班、機場、時間
+- 天氣資料
+    - row: 機場、時間
+- 天氣資料可以作為飛機起降資料的補充
+    - 原本飛機起降資料不包含天氣的資訊，在JOIN之後就包含了天氣資訊
+
+## 練習: 翻轉教室 02-RDataEngineer-06-Join
+
+## 範例: 政府招標資料v.s.商業司的公司基本資料
+
+- 政府招標資料
+    - row: 標案
+- 商業司的公司基本資料
+    - row: 公司
+- JOIN: 必須把政府招標資料的row從*標案*改成*公司*
+
+```
+data.frame(tender = "A123456", players = "12345,234546")
+# 整理
+data.frame(
+  tender = c("A123456", "A123456"),
+  players = c("12345", "234546")
+)
+```
+
+## 範例: GDP資料v.s.房貸餘額
+
+- GDP的row: 年度累積資料
+- 房貸餘額的row: 當月份的瞬間資料
+- 挑戰: 要怎麼做比對? 怎麼整理?

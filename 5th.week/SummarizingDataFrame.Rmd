@@ -1,0 +1,75 @@
+---
+title: "Data Frame 的總結"
+author: "Wush Wu"
+date: "March 23, 2017"
+output: 
+  ioslides_presentation:
+    widescreen: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data.Frame的基本操作
+
+## CRUD
+
+- C: `data.frame`、`read.csv`或`read.table`
+- R: `[`、`[[`與`$`
+- U: `[`、`[[<-`與`$<-`
+- D: Assign `NULL`
+
+## SQL 操作
+
+- SQL 是通用的結構化資料的操作工具
+- 要應徵資料相關工作，SQL是必備
+
+## `dplyr`
+
+- 一個在R上實現類似SQL功能的套件
+- 對照表:
+    - SELECT <--> `select`
+    - WHERE <--> `filter`
+    - UPDATE <--> `mutate`
+    - GROUP BY <--> `group_by`
+
+## 進行方式
+
+- 這個課程，我們跟著R語言翻轉教室的 02-RDataEngineer-05-Data-Manipulation 進行
+
+## `group_by` + `do`
+
+1. 依照給定的欄位，將data.frame切割成若干個子data.frame
+2. 對每個子data.frame `.` 進行運算，結果必須為一個單一row的data.frame
+3. 將data.frame合併
+
+## `group_by` + `do`
+
+- `browser` 中斷點
+    - 特殊指令`c`, `f`, `n`, `s`, `Q`
+
+```r
+library(dplyr)
+group_by(iris, Species) %>%
+  do({
+    browser()
+    # check `.`
+  })
+```
+
+## `group_by` + `summarise`
+
+- 請先理解`group_by` + `do`
+- `summarise`是`do`的特別版本
+
+```r
+group_by(iris, Species) %>%
+  summarise(Sepal.Length = mean(Sepal.Length))
+# 等價於
+group_by(iris, Species) %>%
+  do({
+    data.frame(Sepal.Length = mean(.$Sepal.Length))
+  })
+```
+
