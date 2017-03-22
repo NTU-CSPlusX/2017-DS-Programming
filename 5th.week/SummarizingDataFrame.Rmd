@@ -1,5 +1,5 @@
 ---
-title: "Data Frame 的總結"
+title: "dplyr 與 Data Frame"
 author: "Wush Wu"
 date: "March 23, 2017"
 output: 
