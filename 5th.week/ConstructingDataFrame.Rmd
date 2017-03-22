@@ -1,0 +1,426 @@
+---
+title: "非結構化資料處理的要點"
+author: "Wush Wu"
+date: "March 22, 2017"
+output: 
+  ioslides_presentation:
+    widescreen: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 什麼是非結構化資料
+
+## 純文字資料
+
+```txt
+2015年9月份海盜案件紀要(東南亞地區)
+點閱：14 
+資料來源：洋總局 日期：104/10/08 
+2015年9月份海盜案件紀要(東南亞地區)
+資料來源:馬來西亞海盜報案中心(PRC)
+1. 日期：2015年9月6日
+時間：當地時間1030
+經緯度：北緯01度16分、東經103度59分
+地點：新加坡海峽
+案情摘要：四名搶匪在無人發現下登上一艘錨泊中的油輪，搶匪闖入機艙後偷了機艙備品並逃逸，船長向公司保全員通報該事件。
+```
+
+## JSON
+
+```txt
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 25,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+  "children": [],
+  "spouse": null
+}
+```
+
+## XML
+
+```txt
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>R語言翻轉教室</title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+<link rel="icon" href="http://i.imgur.com/RkG7X4l.png?v=1" />
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+</html>
+```
+
+## 處理非結構化資料的要點
+
+1. 建立資料的結構
+    - Key Value Pair
+    - Tree Structure
+1. (Optional)建立結構化資料
+
+## 範例: 比較有無結構的資料
+
+- 取得`點閱`
+
+```{r}
+src1 <- "點閱：14 
+資料來源：洋總局
+日期：104/10/08"
+```
+
+## 範例: 比較有無結構的資料
+
+```{r}
+x1 <- strsplit(src1, "\n", fixed = TRUE)[[1]]
+x2 <- strsplit(x1, "：", fixed = TRUE)
+x2
+x2[[1]][2]
+```
+
+## 範例: 比較有無結構的資料
+
+```{r}
+src2 <- list(
+  "點閱" = "14",
+  "資料來源" = "洋總局",
+  "日期" = "104/10/08"
+)
+src2[["點閱"]]
+```
+
+## 處理無結構化資料的技巧
+
+- 斷行
+- 定位
+    - 符號定位`strsplit`
+    - 座標定位`substring`
+- 流程控制(迴圈、條件判斷)
+- Regular Expression
+
+## 迴圈、條件判斷
+
+```{r}
+x1 <- strsplit(src1, "\n", fixed = TRUE)[[1]]
+x2 <- strsplit(x1, "：", fixed = TRUE)
+x2
+```
+
+## 迴圈、條件判斷
+
+```{r}
+x1 <- strsplit(src1, "\n", fixed = TRUE)[[1]]
+x2 <- strsplit(x1, "：", fixed = TRUE)
+x2[[1]][1] == "點閱"
+x2[[2]][1] == "點閱"
+x2[[3]][1] == "點閱"
+```
+
+## R 的條件判斷
+
+```r
+if (<expr>) <expr>
+if (<expr>) <expr> else <expr>
+```
+
+## 迴圈、條件判斷
+
+```{r}
+x1 <- strsplit(src1, "\n", fixed = TRUE)[[1]]
+x2 <- strsplit(x1, "：", fixed = TRUE)
+if (x2[[1]][1] == "點閱") x2[[1]][2]
+if (x2[[2]][1] == "點閱") x2[[2]][2]
+if (x2[[3]][1] == "點閱") x2[[3]][2]
+```
+
+## R 的迴圈
+
+```r
+for (<variable name> in <vector>) <expr>
+```
+
+## 迴圈、條件判斷
+
+```{r}
+x1 <- strsplit(src1, "\n", fixed = TRUE)[[1]]
+x2 <- strsplit(x1, "：", fixed = TRUE)
+for(i in 1:3) {
+  if (x2[[i]][1] == "點閱") print(x2[[i]][2])
+}
+```
+
+## 組合的`expression`
+
+- `<expr>` 可以是多個expression:
+
+```r
+{
+  <expr>
+  <expr>
+  <expr> # 會被當成結果的expression
+}
+```
+
+## 迴圈的範例: C + U
+
+```{r}
+data.names <- names(iris)[1:4]
+species.names <- c("setosa", "versicolor", "virginica") # ?unique
+result <- data.frame(
+  Sepal.Length = c(0, 0, 0), 
+  Sepal.Width = c(0, 0, 0), 
+  Petal.Length = c(0, 0, 0),
+  Petal.Width = c(0, 0, 0)
+)
+rownames(result) <- species.names
+result["setosa", "Sepal.Length"] <- mean(iris$Sepal.Length[iris$Species == "setosa"])
+result["setosa", "Sepal.Width"] <- mean(iris$Sepal.Width[iris$Species == "setosa"])
+# ...
+```
+
+## 迴圈的範例
+
+```{r}
+for(data.name in data.names) {
+  result["setosa", data.name] <- mean(iris[[data.name]][iris$Species == "setosa"])
+  result["versicolor", data.name] <- mean(iris[[data.name]][iris$Species == "versicolor"])
+  result["virginica", data.name] <- mean(iris[[data.name]][iris$Species == "virginica"])
+}
+```
+
+## 小練習
+
+```{r}
+for(data.name in data.names) {
+  # result["setosa", data.name] <- mean(iris[[data.name]][iris$Species == "setosa"])
+  # result["versicolor", data.name] <- mean(iris[[data.name]][iris$Species == "versicolor"])
+  # result["virginica", data.name] <- mean(iris[[data.name]][iris$Species == "virginica"])
+  for(species.name in species.names) {
+    # ...
+  }
+}
+```
+
+## 迴圈的注意事項
+
+- Side Effect
+
+## Side Effect的範例:
+
+- 目標
+
+```r
+[[1]]
+[1] 1 2 3
+
+[[2]]
+[1] 1 2 3
+
+[[3]]
+[1] 1 2 3
+```
+
+## Side Effect的範例: 錯誤的程式
+
+```{r}
+result <- list()
+for(i in 1:3) {
+  element <- c(0, 0, 0)
+  for(i in 1:3) {
+    element[i] <- i
+  }
+  result[[i]] <- element
+}
+# result?
+# result
+```
+
+# 資料的結構
+
+## 資料與資料的關係
+
+- 物理意義
+    - Key Value Pair: 名稱與值
+    - Tree Structure: 主從關係
+- 工具的定義
+    - R 物件能定義的關係
+
+## 範例: Key Value Pair
+
+- 這是一個人的資料
+
+```txt
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 25
+}
+```
+
+## 在R 中的對應
+
+- attributes
+- named list
+- named vector(?)
+
+## 範例: Tree Structure
+
+```txt
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "children" : [
+    {
+      "firstName": "Tom",
+      "lastName": "Smith"
+    },
+    {
+      "firstName": "Josh",
+      "lastName": "Smith"
+    }
+  ]
+}
+```
+
+## 在R 中的對應
+
+- list in list
+- list in attributes with attributes
+
+## 轉換為結構化資料
+
+- 設定目標
+    - row 的物理意義
+    - column 為row的標籤
+
+## `lapply`與`sapply`
+
+- `lapply`與for迴圈類似，但是特別擅長將list of something轉換為list of something
+    - `lapply`、`sapply`沒有side effect
+    - `lapply`、`sapply`適合Create, 不適合Update
+- `sapply`與`lapply`類似，但是會自動把list of something嘗試轉換為vector
+
+## `lapply`的範例
+
+- 示範結果
+
+```{r}
+# 取自example(lapply)
+x <- list(a = 1:10, logic = c(TRUE, FALSE, FALSE, TRUE))
+lapply(x, mean)
+```
+
+## `lapply`的範例
+
+- 用迴圈
+
+```{r}
+x <- list(a = 1:10, logic = c(TRUE, FALSE, FALSE, TRUE))
+for(name in names(x)) {
+  print(mean(x[[name]]))
+}
+# x[[1]]
+# x[[2]]
+```
+
+## `lapply`的範例
+
+- 等價`lapply`的迴圈
+
+```{r}
+x <- list(a = 1:10, logic = c(TRUE, FALSE, FALSE, TRUE))
+result <- list()
+for(name in names(x)) {
+  result[[name]] <- mean(x[[name]])
+}
+result
+```
+
+## `lapply`的範例
+
+- 迴圈+函數
+
+```{r}
+x <- list(a = 1:10, logic = c(TRUE, FALSE, FALSE, TRUE))
+f <- function(i) {
+  mean(i)
+}
+result <- list()
+for(name in names(x)) {
+  result[[name]] <- f(x[[name]])
+}
+result
+```
+
+## `lapply`的範例
+
+- 函數
+
+```{r}
+x <- list(a = 1:10, logic = c(TRUE, FALSE, FALSE, TRUE))
+lapply(x, mean)
+```
+
+## `lapply` v.s. `sapply`
+
+- 函數
+
+```{r}
+x <- list(a = 1:10, logic = c(TRUE, FALSE, FALSE, TRUE))
+lapply(x, mean)
+sapply(x, mean)
+```
+
+## 範例: 整理JSON資料
+
+- 利用`sapply`從list of list中抽取物件
+- 將結果寫為data.frame
+    - 每一個row對應到一個Youbike站點在該時間的資料
+- 詳細的程式碼請參考JSON關卡的大魔王
+    - 問題: 如果是每小時一個檔案的資料呢?
+    - 參考答案: 
+        - 建立一個named list, 把data.frame當成list的elements, 並把時間(%Y-%m-%d-%H)當成名字
+        - 建立一個大的data.frame, 新增一個欄位為時間
+
+## 範例: 整理XML的資料
+
+- 假設我們從政府招標網站抓取許多網頁資料，並存到目錄"tenders"
+- row 的物理意義: 
+- 每一個網頁的處理都類似XML關卡的大魔王
+- xml2套件提供類似`lapply`, `sapply`的函數
+
+```r
+tender.list <- dir("tenders", full.names = TRUE)
+result <- data.frame(players = character(length(tender.list)))
+rownames(result) <- tender.list
+for(tender.path in tender.list) {
+  tender <- read_html(tender_path)
+  # .. 與大魔王做類似的事情
+  result[tender.path] <- paste(players, collapse = ",")
+}
+```
+
