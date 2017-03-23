@@ -427,7 +427,7 @@ charToRaw(x)
 <pre><code class="r">charToRaw(iconv(x, from = &quot;UTF-8&quot;, to = &quot;UTF-16&quot;))
 </code></pre>
 
-<pre><code>## [1] ff fe 2d 4e
+<pre><code>## [1] fe ff 4e 2d
 </code></pre>
 
 </article>
@@ -507,111 +507,6 @@ x
 <article class = 'flexbox vcenter'>
 <ul>
 <li>請完成01-RBasic-07</li>
-</ul>
-
-</article>
-<!-- Presenter Notes -->
-</slide>
-<slide class="dark segue" id="slide-24" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
-  <hgroup>
-    <h2>非結構化與半結構化的資料</h2>
-  </hgroup>
-  <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-<slide class="largecontent" id="slide-25" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
-<hgroup>
-  <h2>資料不一定具備結構</h2>
-</hgroup>
-<article class = 'flexbox vcenter'>
-<ul>
-<li>非結構化的資料: 純文字</li>
-<li>半結構化的資料: XML、JSON</li>
-<li>結構化的資料: CSV</li>
-</ul>
-
-</article>
-<!-- Presenter Notes -->
-</slide>
-<slide class="largecontent" id="slide-26" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
-<hgroup>
-  <h2>Open Data</h2>
-</hgroup>
-<article class = 'flexbox vcenter'>
-<ul>
-<li>讓政府的資料具備機器可讀
-
-<ul>
-<li>非結構 --&gt; 半結構</li>
-</ul></li>
-<li>網頁
-
-<ul>
-<li>半結構</li>
-</ul></li>
-<li>各種資料API
-
-<ul>
-<li>Facebook、Youbike...</li>
-</ul></li>
-</ul>
-
-</article>
-<!-- Presenter Notes -->
-</slide>
-<slide class="largecontent" id="slide-27" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
-<hgroup>
-  <h2>處理非結構化的資料與半結構化的資料</h2>
-</hgroup>
-<article class = 'flexbox vcenter'>
-<ul>
-<li>一般性文字處理</li>
-<li>使用套件
-
-<ul>
-<li>小心中文，小心編碼</li>
-</ul></li>
-<li>歸納資訊, 表格化</li>
-</ul>
-
-</article>
-<!-- Presenter Notes -->
-</slide>
-<slide class="largecontent" id="slide-28" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
-<hgroup>
-  <h2>存取一般文字</h2>
-</hgroup>
-<article class = 'flexbox vcenter'>
-<ul>
-<li>我們必須到純文字資料撰寫資訊的規則</li>
-</ul>
-
-<pre><code class="txt">日期: 2017-03-27
-地點: 台北火車站
-</code></pre>
-
-<ul>
-<li><code>cat</code>、<code>write</code>等函數可以輸出character vector</li>
-<li><code>readLines</code>函數可以讀取character vector
-
-<ul>
-<li><code>strsplit</code>, <code>substring</code>等函數可以處理純文字的資料</li>
-<li>Regular Expression 可以一般性的處理純文字資料</li>
-</ul></li>
-</ul>
-
-</article>
-<!-- Presenter Notes -->
-</slide>
-<slide class="largecontent" id="slide-29" style="background-image: url('libraries/frameworks/io2012-wush/images/background.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;" >
-<hgroup>
-  <h2>作業</h2>
-</hgroup>
-<article class = 'flexbox vcenter'>
-<ul>
-<li>01-RDataEngineer-01</li>
 </ul>
 
 </article>
@@ -757,42 +652,6 @@ x
       <a href="#" target="_self" rel='tooltip' 
         data-slide=23 title='練習'>
          23
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='非結構化與半結構化的資料'>
-         24
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='資料不一定具備結構'>
-         25
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Open Data'>
-         26
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='處理非結構化的資料與半結構化的資料'>
-         27
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='存取一般文字'>
-         28
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='作業'>
-         29
       </a>
     </li>
   </ul>
