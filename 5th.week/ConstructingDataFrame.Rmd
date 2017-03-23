@@ -131,6 +131,8 @@ x2
 
 ## 迴圈、條件判斷
 
+- 布林運算
+
 ```{r}
 x1 <- strsplit(src1, "\n", fixed = TRUE)[[1]]
 x2 <- strsplit(x1, "：", fixed = TRUE)
@@ -148,6 +150,8 @@ if (<expr>) <expr> else <expr>
 
 ## 迴圈、條件判斷
 
+- if else
+
 ```{r}
 x1 <- strsplit(src1, "\n", fixed = TRUE)[[1]]
 x2 <- strsplit(x1, "：", fixed = TRUE)
@@ -161,6 +165,23 @@ if (x2[[3]][1] == "點閱") x2[[3]][2]
 ```r
 for (<variable name> in <vector>) <expr>
 ```
+
+## 迴圈、條件判斷
+
+- 找出一樣與不一樣的部分
+- 不一樣的部分用變數取代
+
+```{r}
+x1 <- strsplit(src1, "\n", fixed = TRUE)[[1]]
+x2 <- strsplit(x1, "：", fixed = TRUE)
+i <- 1
+if (x2[[i]][1] == "點閱") x2[[i]][2]
+i <- 2
+if (x2[[i]][1] == "點閱") x2[[i]][2]
+i <- 3
+if (x2[[i]][1] == "點閱") x2[[i]][2]
+```
+
 
 ## 迴圈、條件判斷
 

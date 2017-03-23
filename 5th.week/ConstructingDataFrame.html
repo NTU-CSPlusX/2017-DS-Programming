@@ -239,6 +239,10 @@ x2</pre>
 
 </article></slide><slide class=''><hgroup><h2>迴圈、條件判斷</h2></hgroup><article  id="-1">
 
+<ul>
+<li>布林運算</li>
+</ul>
+
 <pre class = 'prettyprint lang-r'>x1 &lt;- strsplit(src1, &quot;\n&quot;, fixed = TRUE)[[1]]
 x2 &lt;- strsplit(x1, &quot;：&quot;, fixed = TRUE)
 x2[[1]][1] == &quot;點閱&quot;</pre>
@@ -260,6 +264,10 @@ if (&lt;expr&gt;) &lt;expr&gt; else &lt;expr&gt;</pre>
 
 </article></slide><slide class=''><hgroup><h2>迴圈、條件判斷</h2></hgroup><article  id="-2">
 
+<ul>
+<li>if else</li>
+</ul>
+
 <pre class = 'prettyprint lang-r'>x1 &lt;- strsplit(src1, &quot;\n&quot;, fixed = TRUE)[[1]]
 x2 &lt;- strsplit(x1, &quot;：&quot;, fixed = TRUE)
 if (x2[[1]][1] == &quot;點閱&quot;) x2[[1]][2]</pre>
@@ -274,6 +282,25 @@ if (x2[[3]][1] == &quot;點閱&quot;) x2[[3]][2]</pre>
 <pre class = 'prettyprint lang-r'>for (&lt;variable name&gt; in &lt;vector&gt;) &lt;expr&gt;</pre>
 
 </article></slide><slide class=''><hgroup><h2>迴圈、條件判斷</h2></hgroup><article  id="-3">
+
+<ul>
+<li>找出一樣與不一樣的部分</li>
+<li>不一樣的部分用變數取代</li>
+</ul>
+
+<pre class = 'prettyprint lang-r'>x1 &lt;- strsplit(src1, &quot;\n&quot;, fixed = TRUE)[[1]]
+x2 &lt;- strsplit(x1, &quot;：&quot;, fixed = TRUE)
+i &lt;- 1
+if (x2[[i]][1] == &quot;點閱&quot;) x2[[i]][2]</pre>
+
+<pre >## [1] &quot;14 &quot;</pre>
+
+<pre class = 'prettyprint lang-r'>i &lt;- 2
+if (x2[[i]][1] == &quot;點閱&quot;) x2[[i]][2]
+i &lt;- 3
+if (x2[[i]][1] == &quot;點閱&quot;) x2[[i]][2]</pre>
+
+</article></slide><slide class=''><hgroup><h2>迴圈、條件判斷</h2></hgroup><article  id="-4">
 
 <pre class = 'prettyprint lang-r'>x1 &lt;- strsplit(src1, &quot;\n&quot;, fixed = TRUE)[[1]]
 x2 &lt;- strsplit(x1, &quot;：&quot;, fixed = TRUE)
