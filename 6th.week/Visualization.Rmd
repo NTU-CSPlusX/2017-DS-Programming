@@ -1,0 +1,64 @@
+---
+title: "資料的視覺化與資料的比較"
+author: "Wush Wu"
+date: "March 23, 2017"
+output: 
+  ioslides_presentation:
+    widescreen: true
+---
+
+```{r setup, include=FALSE, cache = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# 更換中文字型
+if (grepl("darwin", R.version$os)) par(family = "STKaiti", bg = "transparent")
+```
+
+## R 的繪圖功能
+
+- 基本功能
+- ggplot2
+
+# 基本功能
+
+## 繪圖的要點
+
+```r
+if (grepl("darwin", R.version$os)) par(family = "STKaiti", bg = "transparent")
+plot(x = 1, y = 1, type = "p", xlab = "x座標軸", ylab = "y座標軸")
+```
+
+<div class="columns-2">
+```{r plot1, fig.height = 4, fig.width = 4, eval = TRUE, echo = FALSE}
+plot(x = 1, y = 1, type = "p", xlab = "x座標軸", ylab = "y座標軸")
+```
+
+- 繪圖的要點:
+    - 完成主要的繪圖區域
+        - 利用x 座標與y 座標定位點、線、面
+    - 豐富其他說明文件
+        - 例如：x 、y 座標軸與說明
+</div>
+
+## 基本功能的分類
+
+- 高級繪圖函數: `plot`、`images`、`hist`...
+- 低級繪圖函數: `points`、`lines`...
+
+## 高級繪圖函數
+
+- 會重新建立圖形的函數
+
+```{r}
+plot(x = 1, y = 1, type = "p", xlab = "x座標軸", ylab = "y座標軸")
+```
+
+## 低級繪圖函數
+
+- 會在原本的圖上作加註
+
+```{r}
+plot(x = 1, y = 1, type = "p", xlab = "x座標軸", ylab = "y座標軸")
+abline(v = 1)
+abline(h = 1)
+```
+
